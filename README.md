@@ -1,4 +1,4 @@
-cube-vault
+Cube-Vault
 ==========
 
-Cube's Crew armario de cosas :)
+Cube's Crew Stuff
