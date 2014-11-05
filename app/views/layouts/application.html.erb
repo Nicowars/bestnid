@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<%= render 'layouts/header' %>
+
+<% if flash[:notice] %>
+	<div class=´'alert alert-danger'>
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
 <%= yield %>
 
 </body>
