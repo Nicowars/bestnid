@@ -1,4 +1,6 @@
 class Producto < ActiveRecord::Base
+	belongs_to :usuario
+
 	validates :nombre,
 		presence: true,
 		uniqueness: true
