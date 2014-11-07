@@ -8,6 +8,17 @@
             <%= image_tag "logo.png", title: "Logo", class: "logo" %>
           <% end %>
           <%= link_to "Regístrate", new_usuario_path %>
+          <!--<%= link_to "Usuarios", usuarios_path %>-->
+          
+
+<% form_tag productos_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :descripcion => nil %>
+  </p>
+<% end %>
+
+
 
         </div>
         <div class="collapse navbar-collapse">

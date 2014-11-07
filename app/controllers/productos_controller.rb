@@ -1,8 +1,8 @@
 class ProductosController < ApplicationController
-  before_action	:get,		only: [:show, :edit, :update, :destroy]
+  before_action	:getter,		only: [:show, :edit, :update, :destroy]
   before_action	:new,		only: :create
   
-  def get
+  def getter
     @producto= Producto.find(params[:id])
   end
   
@@ -10,7 +10,7 @@ class ProductosController < ApplicationController
     @producto= Producto.new
   end
   def index
-    @productos= Producto.all
+    @productos= Producto.search(params[:search])
   end
 
   def show

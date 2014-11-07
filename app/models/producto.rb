@@ -10,4 +10,12 @@ class Producto < ActiveRecord::Base
 		presence: true
 
 
+def self.search(search)
+  if search
+    @productos = Producto.where('descripcion LIKE ?', "%#{search}%")
+  else
+    @productos = Producto.all
+  end
+end
+
 end
