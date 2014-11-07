@@ -22,19 +22,19 @@ class ProductosController < ApplicationController
     @producto.nombre=params[:producto][:nombre]
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
-    @monstruo.save
-    redirect_to monstruos_path
+    @producto.save
+    redirect_to productos_path
   end
   def update
     @producto.nombre=params[:producto][:nombre]
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
-    @monstruo.save
-    redirect_to monstruos_path
+    @producto.save
+    redirect_to productos_path
   end
   def destroy
     @producto.destroy
-    redirect_to monstruos_path
+    redirect_to productos_path
   end
 
 end
