@@ -1,0 +1,10 @@
+<%= form_for(@producto) do |f| %>
+	<p><%= f.label :nombre %>
+	<%= f.text_field :nombre, required: true %></p>
+	
+	<p><%= f.label :descripcion %>
+	<%= f.text_field :mail, required: true %></p>
+
+	</br>
+	<%= f.submit 'Guardar' %>
+<% end %>

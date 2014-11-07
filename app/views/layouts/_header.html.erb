@@ -5,9 +5,10 @@
           
           
           <%= link_to root_path, class: 'navbar-brand' do %>
-            <p><%= image_tag "logo.png", title: "Logo", class: "logo" %>
-            <h1>Bestnid</h1></p>
+            <%= image_tag "logo.png", title: "Logo", class: "logo" %>
           <% end %>
+          <%= link_to "Regístrate", new_usuario_path %>
+
         </div>
         <div class="collapse navbar-collapse">
           
@@ -16,3 +17,4 @@
 
     </div>
   </header>
+  
