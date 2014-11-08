@@ -10,7 +10,7 @@ class UsuariosController < ApplicationController
     @usuario= Usuario.new
   end
   def index
-    @Usuarios= Usuario.all
+    @usuarios= Usuario.all
   end
 
   def show
@@ -20,15 +20,17 @@ class UsuariosController < ApplicationController
 
   def create
     @usuario.nombre=params[:usuario][:nombre]
-    @usuario.imagen=params[:usuario][:imagen]
+    #@usuario.imagen=params[:usuario][:imagen]
     @usuario.mail=params[:usuario][:mail]
+    @usuario.password=params[:usuario][:password]
     @usuario.save
     redirect_to usuarios_path
   end
   def update
     @usuario.nombre=params[:Usuario][:nombre]
-    @usuario.imagen=params[:Usuario][:imagen]
+    #@usuario.imagen=params[:Usuario][:imagen]
     @usuario.descripcion=params[:Usuario][:descripcion]
+    @usuario.password=params[:usuario][:password]
     @usuario.save
     redirect_to usuarios_path
   end

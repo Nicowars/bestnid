@@ -11,5 +11,5 @@ u = Usuario.find_or_create_by(nombre:'Mariano Petrucci', mail:'mp@bestnid.com', 
 u = Usuario.find_or_create_by(nombre:'Mabel Rimano', mail:'mr@bestnid.com', password:'mr');
 u = Usuario.find_or_create_by(nombre:'Roberto Vegas', mail:'rv@bestnid.com', password:'rv');
 
-p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta de oriunda de Tilcara. Es mansita', imagen:'llama.jpg', fecha:'06/03/2014');
-p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg', fecha:'07/04/2014');
+p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta de oriunda de Tilcara. Es mansita', imagen:'llama.jpg');
+p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg');
