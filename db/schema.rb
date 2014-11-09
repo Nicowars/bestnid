@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108005132) do
+ActiveRecord::Schema.define(version: 20141109181420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comentarios", force: true do |t|
+    t.string   "detalle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "oferta", force: true do |t|
+    t.string   "detalle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "producto_id"
+    t.integer  "usuario_id"
+  end
 
   create_table "productos", force: true do |t|
     t.string   "nombre"
@@ -31,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141108005132) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "imagen"
   end
 
 end

@@ -1,5 +1,7 @@
 class Producto < ActiveRecord::Base
 	belongs_to :usuario
+	has_many :ofertas
+	has_many :comentarios
 
 	validates :nombre,
 		presence: true,
