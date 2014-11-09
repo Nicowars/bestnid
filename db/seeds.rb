@@ -11,11 +11,13 @@ u = Usuario.find_or_create_by(nombre:'Mariano Petrucci', mail:'mp@bestnid.com', 
 u = Usuario.find_or_create_by(nombre:'Mabel Rimano', mail:'mr@bestnid.com', password:'mr');
 u = Usuario.find_or_create_by(nombre:'Roberto Vegas', mail:'rv@bestnid.com', password:'rv');
 
-p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta de oriunda de Tilcara. Es mansita', imagen:'llama.jpg', usuario: u);
+p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta mansita', imagen:'llama.jpg', usuario: u);
 o = Oferta.find_or_create_by(producto: p, detalle:'Una llama es justo lo que necesito.', usuario: Usuario.find(2));
-c = Comentario.find_or_create_by(producto: p, detalle:'¿Te lame?', usuario: Usuario.find(3), comentario: nil);
-c = Comentario.find_or_create_by(producto: p, detalle:'Sí.', usuario: p.usuario, comentario: c);
+c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find(3));
+c.save;
+c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, comentario: c);
 
-p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg', usuario: u);
+p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Marco sin espejo', imagen:'espejo.jpg', usuario: u);
 o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro.', usuario: Usuario.find(1));
-c = Comentario.find_or_create_by(producto: p, detalle:'¿Vidrio a parte?', usuario: Usuario.find(3), comentario: nil);
+c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find(3), comentario: nil);
+c.save;
