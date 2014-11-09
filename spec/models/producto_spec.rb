@@ -1,5 +1,12 @@
 require 'rails_helper'
 
+
+
 RSpec.describe Producto, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "debe tener nombre" do
+  	p= Producto.new
+  	expect(p).to respond_to(:nombre)
+  end
+
 end
