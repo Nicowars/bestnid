@@ -1,7 +1,13 @@
 class UsuariosController < ApplicationController
 	before_action	:get,	only: [:show, :edit, :update, :destroy]
  	before_action	:new,	only: :create
-  
+	before_action	:comprobar,	only: :create
+	
+  def comprobar
+	if (params[:usuario][:pass] != params[:usuario][:password])
+		redirect_to new_usuario_path
+	end
+	end
   def get
     @usuario= Usuario.find(params[:id])
   end
@@ -25,6 +31,7 @@ class UsuariosController < ApplicationController
     @usuario.password=params[:usuario][:password]
     @usuario.save
     redirect_to usuarios_path
+	
   end
   def update
     @usuario.nombre=params[:Usuario][:nombre]
