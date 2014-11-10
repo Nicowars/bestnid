@@ -32,11 +32,16 @@ class UsuariosController < ApplicationController
   end
 
   def create
-    @usuario = Usuario.new(params[:usuario])
+    @usuario.nombre = params[:usuario][:nombre]
+	@usuario.alias = params[:usuario][:alias]
+	@usuario.mail = params[:usuario][:mail]
+	@usuario.password = params[:usuario][:password]
+	@usuario.tel = params[:usuario][:tel]
+	@usuario.credit = params[:usuario][:credit]
     if @usuario.save
       redirect_to root_url, :notice => "Registrado"
     else
-      render "new"
+      redirect_to :back, :notice => "El telefono no puede contener letras"
     end
 	
   end
