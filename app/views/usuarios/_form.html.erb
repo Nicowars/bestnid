@@ -1,15 +1,64 @@
-<%= form_for(@usuario) do |f| %>
-	<p><%= f.label :nombre %>
-	<%= f.text_field :nombre, required: true %></p>
-	
-	<p><%= f.label :mail %>
-	<%= f.text_field :mail, required: true %></p>
-	
-	<p><%= f.label :password %>
-	<%= f.password_field "Contraseña", required: true %></p>
-	<p><%= f.label :password %>
-	<%= f.password_field :password, required: true %></p>
+﻿<%= form_for(@usuario) do |f| %>
 
+	<form action="/usuario" method="post">
+	
+	<%= label_tag "nombre", "Nombre: " %>
+	<%= f.text_field :nombre, required: true, uniqueness: true, placeholder: 'Ingrese un nombre' %>
+	<% if @usuario.errors.any? %>
+   <ul>
+      <% @usuario.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+		
 	</br>
+	<%= label_tag "mail", "E-mail: " %>
+	<%= f.email_field :mail, required: true, placeholder: 'Ingrese un mail' %>
+	<% if @usuario.errors.any? %>
+   <ul>
+      <% @usuario.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+	
+	</br>
+	
+	<%= label_tag "password1", "Contraseña: " %>
+	<%= f.password_field :password , required: true, placeholder: 'Ingrese una Contraseña' %></label>
+	<% if @usuario.errors.any? %>
+   <ul>
+      <% @usuario.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+	
+	</br>
+	
+	<%= label_tag "password2", "Contraseña: " %>
+	<%= f.password_field :pass , required: true, placeholder: 'Repita la Contraseña' %></label>
+	<% if @usuario.errors.any? %>
+   <ul>
+      <% @usuario.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+<% end %>
+	
+	</br>
+	
+	
+
 	<%= f.submit 'Guardar' %>
+	
+	<% if @usuario.errors.any? %>
+   <ul>
+      <% @usuario.errors.each do |atributo, mensaje| %>
+      <li> <%= mensaje %> </li>
+      <% end %>
+   </ul>
+	<% end %>
+	
 <% end %>

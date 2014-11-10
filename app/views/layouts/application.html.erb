@@ -10,6 +10,11 @@
 
 <%= render 'layouts/header' %>
 
+<% if session[:usuario_id]!=nil %>
+	<h1><%= Usuario.find(session[:usuario_id]).nombre %></h1>
+<% end %>
+
+
 <% if flash[:notice] %>
 	<div class='alert alert-danger'>
 		<%= flash[:notice] %>

@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u = Usuario.find_or_create_by(nombre:'Ramiro Lamas', mail:'rl@bestnid.com', password:'rl');
-u = Usuario.find_or_create_by(nombre:'Mariano Petrucci', mail:'mp@bestnid.com', password:'mp');
-u = Usuario.find_or_create_by(nombre:'Mabel Rimano', mail:'mr@bestnid.com', password:'mr');
-u = Usuario.find_or_create_by(nombre:'Roberto Vegas', mail:'rv@bestnid.com', password:'rv');
+u = Usuario.find_or_create_by(alias: 'rl', nombre:'Ramiro Lamas', mail:'rl@bestnid.com', password:'rl');
+u = Usuario.find_or_create_by(alias: 'mp', nombre:'Mariano Petrucci', mail:'mp@bestnid.com', password:'mp');
+u = Usuario.find_or_create_by(alias: 'mr', nombre:'Mabel Rimano', mail:'mr@bestnid.com', password:'mr');
+u = Usuario.find_or_create_by(alias: 'rv', nombre:'Roberto Vegas', mail:'rv@bestnid.com', password:'rv');
 
 p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta mansita', imagen:'llama.jpg', usuario: u);
 o = Oferta.find_or_create_by(producto: p, detalle:'Una llama es justo lo que necesito.', usuario: Usuario.find(2));

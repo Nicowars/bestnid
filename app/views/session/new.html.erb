@@ -1,0 +1,14 @@
+<h1>Ingreso</h1>  
+  
+<%= form_tag do %>
+
+	<div class="field">  
+    <%= label_tag "Usuario" %>  
+    <%= text_field_tag :alias, params[:alias] %>  
+  </div>  
+  <div class="field">  
+    <%= label_tag :password %>  
+    <%= password_field_tag :password, params[:password] %>  
+  </div>  
+  <div class="actions"><%= submit_tag "Ingresar" %></div>  
+<% end %>
