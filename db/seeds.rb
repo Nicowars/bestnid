@@ -12,12 +12,12 @@ u = Usuario.find_or_create_by(alias: 'mr', nombre:'Mabel Rimano', mail:'mr@bestn
 u = Usuario.find_or_create_by(alias: 'rv', nombre:'Roberto Vegas', mail:'rv@bestnid.com', password:'rv');
 
 p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta mansita', imagen:'llama.jpg', usuario: u);
-o = Oferta.find_or_create_by(producto: p, detalle:'Una llama es justo lo que necesito.', usuario: Usuario.find(2));
-c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find(3));
+o = Oferta.find_or_create_by(producto: p, detalle:'Una llama es justo lo que necesito.', usuario: Usuario.find_by(alias: 'mp'));
+c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find_by(alias: 'mr'));
 c.save;
 c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, comentario: c);
 
 p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Marco sin espejo', imagen:'espejo.jpg', usuario: u);
-o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro.', usuario: Usuario.find(1));
-c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find(3), comentario: nil);
+o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro.', usuario: Usuario.find_by(alias: 'rl'));
+c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), comentario: nil);
 c.save;
