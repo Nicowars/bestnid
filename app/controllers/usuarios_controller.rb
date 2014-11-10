@@ -26,14 +26,23 @@ class UsuariosController < ApplicationController
   end
 
   def create
-    @usuario.nombre=params[:usuario][:nombre]
-    #@usuario.imagen=params[:usuario][:imagen]
-    @usuario.mail=params[:usuario][:mail]
-    @usuario.password=params[:usuario][:password]
-    @usuario.save
-    redirect_to usuarios_path
+    @usuario = Usuario.new(params[:usuario])
+    if @usuario.save
+      redirect_to root_url, :notice => "Registrado"
+    else
+      render "new"
+    end
 	
   end
+
+  def log_in
+
+  end
+
+  def log_out
+
+  end
+
   def update
     @usuario.nombre=params[:Usuario][:nombre]
     #@usuario.imagen=params[:Usuario][:imagen]
