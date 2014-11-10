@@ -4,9 +4,15 @@ class UsuariosController < ApplicationController
 	before_action	:comprobar,	only: :create
 	
   def comprobar
-	flash[:notice] = "holainas";
+  
+	if (Usuario.find_by(mail: params[:usuario][:mail]) != nil )
+		redirect_to new_usuario_path, :notice => "El mail ya tiene un usuario registrado"
+	end
+	if (Usuario.find_by(nombre: params[:usuario][:nombre]) != nil )
+		redirect_to new_usuario_path, :notice => "El usuario con ese nombre ya esta registrado"
+	end
 	if (params[:usuario][:pass] != params[:usuario][:password])
-		redirect_to new_usuario_path
+		redirect_to new_usuario_path, :notice => "Las contrasenas deben ser iguales"
 	end
 	end
   def get
