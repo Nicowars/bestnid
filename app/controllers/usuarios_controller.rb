@@ -4,6 +4,7 @@ class UsuariosController < ApplicationController
 	before_action	:comprobar,	only: :create
 	
   def comprobar
+	flash[:notice] = "holainas";
 	if (params[:usuario][:pass] != params[:usuario][:password])
 		redirect_to new_usuario_path
 	end
