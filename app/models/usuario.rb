@@ -3,7 +3,6 @@ class Usuario < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
-
 	validates :alias,
 		presence: true,
 		uniqueness: true
@@ -16,7 +15,5 @@ class Usuario < ActiveRecord::Base
 	validates :credit,
 		presence: true,
 		uniqueness: true	
-
-	
 
 end

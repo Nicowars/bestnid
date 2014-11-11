@@ -1,16 +1,21 @@
 
 <header>
-  <div class="navbar navbar-default" role="navigation">
+  <div class="navbar navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
           
-        <%= link_to root_path, class: 'navbar-brand' do %>
-         <%= image_tag "logo.png", title: "Logo", class: "logo" %>
+        <%= link_to root_path do %>
+         <%= image_tag "logo.png", class: "logo" %>
         <% end %>
 
         <%= link_to "Regístrate", new_usuario_path, class: 'btn btn-default' %>
         <%= link_to "Usuarios", usuarios_path, class: 'btn btn-default' %>
-          
+
+        <button>Log in</button>
+        <button>Log out</button>
+        <button>Ayuda</button>
+        <button>Quienes somos</button>
+
       </div>
 
 

@@ -1,13 +1,17 @@
 
 <div class="navbar navbar-default" role="navigation">
  	<div class="container-fluid">
-		<div class="navbar-header">  
-		Productos
+		<div class="navbar-header">
+
+		<span class="navbar-brand">Productos</span>
+
+		<form class="navbar-form navbar-left" role="search">
 		<%= form_tag productos_path, :method => 'get' do %>
 		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Buscar", :descripcion => nil %>
+		<%= submit_tag "Buscar", :descripcion => nil, class:"btn btn-default" %>
 		<% end %>
-          
+        </form>
+
 		</div>
     </div>
  </div>
