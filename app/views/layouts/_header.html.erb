@@ -12,9 +12,9 @@
         <%= link_to "Usuarios", usuarios_path, class: 'btn btn-default' %>
 
 		<% if session[:usuario_id]==nil %>
-			<button class="btn btn-success">Log in</button>
+			<%= link_to "Log in", session_new_path , class: 'btn btn-success' %>
 		<% else %>
-			<button>Log out</button%>
+			<%= link_to "Log out", session_destroy_path, class: 'btn btn-default' %>
 		<% end %>
 		<form class="navbar-form navbar-right" role="search">
         <button>Ayuda</button>
