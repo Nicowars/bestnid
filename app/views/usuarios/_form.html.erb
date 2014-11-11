@@ -4,7 +4,19 @@
 
 <%= form_for(@usuario) do |f| %>
 
-	<form action="/usuario" method="post">
+	<% if @usuario.errors.any? %>
+	<div id="error_explanation">
+	<h2><%= pluralize(@usuario.errors.count, "error") %>
+	
+	<ul>
+	<% @usuario.errors.full_messages.each do |msg| %>
+		<li><%== msg %></li>
+	<% end %>
+	</ul>
+	</div>
+	<% end %>
+	
+	
 	
 	<%= label_tag "nombre", "Nombre: " %>
 	<%= f.text_field :nombre, required: true, placeholder: 'Ingrese un nombre' %>
