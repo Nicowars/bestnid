@@ -3,12 +3,12 @@
 	<form action="/usuario" method="post">
 	
 	<%= label_tag "nombre", "Nombre: " %>
-	<%= f.text_field :nombre, required: true, uniqueness: true, placeholder: 'Ingrese un nombre' %>
+	<%= f.text_field :nombre, required: true, placeholder: 'Ingrese un nombre' %>
 		
 	</br>
 	
 	<%= label_tag "alias", "Alias: " %>
-	<%= f.text_field :alias, required: true, uniqueness: true, placeholder: 'Ingrese un alias' %>
+	<%= f.text_field :alias, required: true, placeholder: 'Ingrese un alias' %>
 	
 	</br>
 	

@@ -1,20 +1,19 @@
 class UsuariosController < ApplicationController
 	before_action	:get,	only: [:show, :edit, :update, :destroy]
  	before_action	:new,	only: :create
-	before_action	:comprobar,	only: :create
+	#before_action	:comprobar,	only: :create
 	
-  def comprobar
+  #def comprobar
   
-	if (Usuario.find_by(mail: params[:usuario][:mail]) != nil )
-		redirect_to new_usuario_path, :notice => "El mail ya tiene un usuario registrado"
-	end
-	if (Usuario.find_by(nombre: params[:usuario][:nombre]) != nil )
-		redirect_to new_usuario_path, :notice => "El usuario con ese nombre ya esta registrado"
-	end
-	if (params[:usuario][:pass] != params[:usuario][:password])
-		redirect_to new_usuario_path, :notice => "Las contrasenas deben ser iguales"
-	end
-	end
+	#if (Usuario.find_by(mail: params[:usuario][:mail]) != nil )
+		#redirect_to new_usuario_path, :notice => "El mail ya tiene un usuario registrado"
+	#end
+	#if (Usuario.find_by(nombre: params[:usuario][:nombre]) != nil )
+		#redirect_to new_usuario_path, :notice => "El usuario con ese nombre ya esta registrado"
+	#end
+	#if (params[:usuario][:pass] != params[:usuario][:password])
+		##end
+	#end
   def get
     @usuario= Usuario.find(params[:id])
   end
@@ -44,14 +43,6 @@ class UsuariosController < ApplicationController
       redirect_to :back, :notice => "FAIL"
     end
 	
-  end
-
-  def log_in
-
-  end
-
-  def log_out
-
   end
 
   def update

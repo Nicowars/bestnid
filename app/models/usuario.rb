@@ -5,8 +5,6 @@ class Usuario < ActiveRecord::Base
 
 	validates_presence_of :nombre, :password
 
-
-
 	validates :alias,
 		presence: true,
 		uniqueness: true,
