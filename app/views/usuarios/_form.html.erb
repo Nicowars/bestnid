@@ -1,6 +1,4 @@
-﻿<% if @usuario.errors.any? %>
-  <h1>PUTOS</h1>
-<% end %>
+﻿
 
 <%= form_for(@usuario) do |f| %>
 
@@ -16,7 +14,7 @@
 	</div>
 	<% end %>
 	
-	
+	<form action="/usuario" method="post">
 	
 	<%= label_tag "nombre", "Nombre: " %>
 	<%= f.text_field :nombre, required: true, placeholder: 'Ingrese un nombre' %>
