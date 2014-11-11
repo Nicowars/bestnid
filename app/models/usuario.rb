@@ -5,7 +5,8 @@ class Usuario < ActiveRecord::Base
 
 	validates :alias,
 		presence: true,
-		uniqueness: true
+		uniqueness: true,
+		format: { :with => /\A-\._\w+\z/, :message => "pum"}
 
 	validates :tel,
 		presence: true, 
