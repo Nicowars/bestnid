@@ -40,7 +40,7 @@ class UsuariosController < ApplicationController
     if @usuario.save
       redirect_to root_url, :notice => "Registrado"
     else
-      redirect_to :back, :notice => "FAIL"
+      render 'new'
     end
 	
   end
