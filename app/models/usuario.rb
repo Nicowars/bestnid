@@ -3,9 +3,9 @@ class Usuario < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
-	validates_presence_of :nombre,
+	validates_presence_of :nombre, :password
 
-	validates_presence_of :password,
+
 
 	validates :alias,
 		presence: true,
@@ -19,7 +19,7 @@ class Usuario < ActiveRecord::Base
 
 	validates :credit,
 		presence: true,
-		uniqueness: true	
+		uniqueness: true,	
 		numericality: true
 
 end
