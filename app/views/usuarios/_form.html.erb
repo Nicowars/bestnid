@@ -7,7 +7,7 @@
 	<h2><%= pluralize(@usuario.errors.count, "error") %>
 	
 	<ul>
-	<% @usuario.errors.full_messages.each do |msg| %>
+	<% @usuario.errors.messages.each do |msg| %>
 		<li><%== msg %></li>
 	<% end %>
 	</ul>

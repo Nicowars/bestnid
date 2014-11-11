@@ -5,15 +5,15 @@ class Usuario < ActiveRecord::Base
 
 	validates :nombre,
 		presence: true,
-		format: { :with => /\A[a-zA-Z\s]+\z/ }
-
+		format: { :with => /\A[a-zA-Z\s]+\z/, :message => "Solo puede tener letras y espacios" }
+		
 	validates :password,
 		presence: true
 
 	validates :alias,
 		presence: true,
 		uniqueness: true,
-		format: { :with => /\A[\w\.-]+\z/ }
+		format: { :with => /\A[\w\.-]+\z/, :message => "Solo puede tener letras, numeros o -, ., _"  }
 
 	validates :tel,
 		presence: true, 
