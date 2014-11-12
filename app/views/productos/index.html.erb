@@ -16,6 +16,11 @@
     </div>
  </div>
 
-<ul>
+<% if @producto.size > 0 %>
+	<ul>
 	<%= render @productos %>
 </ul>
+<% else %>
+	<p>No hay productos</p>
+<% end %>
+

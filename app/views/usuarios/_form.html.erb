@@ -4,11 +4,16 @@
 
 	<% if @usuario.errors.any? %>
 	<div id="error_explanation">
-	<h2><%= pluralize(@usuario.errors.count, "error") %>
+	<% if @usuario.errors.count > 1 %>
+		<h3 style="color:red"><%= @usuario.errors.count %> errores</h1>
+	<% else %>
+		<h3 style="color:red"><%= @usuario.errors.count %> error</h1>
+	<% end %>
+	
 	
 	<ul>
 	<% @usuario.errors.full_messages.each do |msg| %>
-		<li><%== msg %></li>
+		<li style="color:red"><%== msg %></li>
 	<% end %>
 	</ul>
 	</div>
@@ -31,12 +36,12 @@
 	
 	</br>
 	
-	<%= label_tag "password1", "Contraseña: " %>
+	<%= label_tag "password1", "Password: " %>
 	<%= f.password_field :password , required: true, placeholder: 'Ingrese una Contraseña' %></label>
 	
 	</br>
 	
-	<%= label_tag "password2", "Contraseña: " %>
+	<%= label_tag "password2", "Password: " %>
 	<%= f.password_field :pass , required: true, placeholder: 'Repita la Contraseña' %></label>
 	
 	</br>
@@ -48,6 +53,7 @@
 	<%= label_tag "credito", "Tarjeta: " %>
 	<%= f.number_field :credit , required: true, placeholder: 'Ingrese su numero de tarjeta' %></label>
 
+	</br>
 	<%= f.submit 'Guardar' %>
 	
 <% end %>

@@ -44,7 +44,7 @@ class UsuariosController < ApplicationController
 			render 'new'
 		end
 	else
-		@usuario.errors[:password] = "Contrasenas no coinciden"
+		@usuario.errors[:password] = "ambos campos deben ser iguales"
 		render 'new'
 	end
   end

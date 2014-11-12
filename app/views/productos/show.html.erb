@@ -3,11 +3,20 @@
 <%= image_tag @producto.imagen, title: "Foto" %>
 
 <h2>Ofertas</h2>
-<ul>
+<% if @producto.ofertas.size > 0 %>
+	<ul>
 	<%= render @producto.ofertas %>
 </ul>
+<% else %>
+	<p>No hay ofertas</p>
+<% end %>
+
 
 <h2>Comentarios</h2>
-<ul>
-	<%= render @producto.comentarios %>
-</ul>
+<% if @producto.comentarios.size > 0 %>
+	<ul>
+		<%= render @producto.comentarios %>
+	</ul>
+<% else %>
+	<p>No hay comentarios</p>
+<% end %>
