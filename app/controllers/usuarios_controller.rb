@@ -37,12 +37,16 @@ class UsuariosController < ApplicationController
 	@usuario.password = params[:usuario][:password]
 	@usuario.tel = params[:usuario][:tel]
 	@usuario.credit = params[:usuario][:credit]
-    if @usuario.save
-      redirect_to root_url, :notice => "Registrado"
-    else
-      render 'new'
-    end
-	
+    if @usuario.password == params[:usuario][:pass]
+		if @usuario.save
+			redirect_to root_url, :notice => "Registrado"
+		else
+			render 'new'
+		end
+	else
+		@usuario.errors[:password] = "Contrasenas no coinciden"
+		render 'new'
+	end
   end
 
   def update
