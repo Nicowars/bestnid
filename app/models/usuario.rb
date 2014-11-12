@@ -4,7 +4,7 @@ class Usuario < ActiveRecord::Base
 	has_many :comentarios
 
 	
-	validates_uniqueness_of :alias, :tel, :credit, message: "ya existe"
+	validates_uniqueness_of :alias, :mail, :tel, :credit, message: "ya existe"
 	validates_numericality_of :tel, :credit, message: "debe ser un numero"
 	validates :nombre,
 		presence: true,
