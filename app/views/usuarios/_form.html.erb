@@ -21,39 +21,113 @@
 	
 	<form action="/usuario" method="post">
 	
+	<p style="color:blue">Los campos con * son obligatorios</p>
+	
+	<table>
+		<tr>
+			<td> <%= label_tag "nombre", "Nombre: " %> </td>
+			<td> <%= f.text_field :nombre,size: 25, required: true, placeholder: 'Ingrese un nombre' %> </td>
+			<td> * <span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "alias", "Alias: " %></td>
+			<td><%= f.text_field :alias,size: 25, required: true, placeholder: 'Ingrese un alias' %></td>
+			<td> * <span style="color:blue">Solo letras, espacios, "."(punto) "-" o "_"(guiones). Se diferencian mayúsculas de minúsculas</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "mail", "E-mail: " %></td>
+			<td><%= f.email_field :mail,size: 25, required: true, placeholder: 'Ingrese un mail' %></td>
+			<td>* <span style="color:blue">Ej: EctoBiologist@Homestuck.com</td></span>
+		</tr>
+		<tr>
+			<td><%= label_tag "password1", "Contraseña: " %></td>
+			<td><%= f.password_field :password ,size: 25, required: true, placeholder: 'Ingrese una Contraseña' %></td>
+			<td>* <span style="color:blue">Alterne Mayúsculas, minúsculas, símboos y números para hacerla más segura</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "password2", "Contraseña: " %></td>
+			<td><%= f.password_field :pass ,size: 25, required: true, placeholder: 'Repita la Contraseña' %></td>
+			<td>* <span style="color:blue">Debe coincidir con la ingresada en el campo superior</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "telefono", "Telefono: " %></td>
+			<td><%= f.telephone_field :tel ,size: 25, required: true, placeholder: 'Ingrese numero telefonico' %></td>
+			<td>* <span style="color:blue">Omita caracteres no numéricos</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "credito", "Tarjeta: " %></td>
+			<td><%= f.text_field :credit ,size: 25, required: true, placeholder: 'Ingrese una tarjeta' %></td>
+			<td>* <span style="color:blue">Omita separaciones entre dígitos</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "titular", "Titular: " %></td>
+			<td><%= f.text_field :credit ,size: 25, required: true, placeholder: 'Ingrese el dueño de la tarjeta' %></td>
+			<td>* <span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "vencimiento", "Vencimiento: " %></td>
+			<td><%= f.text_field :credit, size: 5, required: true %>
+				<%= f.text_field :credit, size: 5, required: true %></td>
+			<td>* <span style="color:blue">Ingrese mes en el primer campo y ultimos dos dígitos del año en el segundo campo</span></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "Domicilio", "Domicilio: " %></td>
+			<td><%= f.text_field :credit ,size: 25, required: true, placeholder: 'Ingrese su domicilio' %></td>
+			<td>* <span style="color:blue">Ej: 52 nº0000 e/ 38 y 39</span></td>
+		</tr>	
+	</table>
+	</br>
+	
+	<%= f.submit 'Guardar' %>
+	
+	<% #formulario viejo y feo %>
+	<% #lo dejamos solo para ver lo feo y viejo que es %>
+	
+	<% if false %>
+	<p>
 	<%= label_tag "nombre", "Nombre: " %>
 	<%= f.text_field :nombre, required: true, placeholder: 'Ingrese un nombre' %>
-		
-	</br>
+	*
+	<span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span>
+	</p>
 	
+	<p>
 	<%= label_tag "alias", "Alias: " %>
 	<%= f.text_field :alias, required: true, placeholder: 'Ingrese un alias' %>
+	*
+	<span style="color:blue">Solo letras, espacios, "."(punto) "-" o "_"(guiones). Se diferencian mayúsculas de minúsculas</span>
+	</p>
 	
-	</br>
-	
+	<p>
 	<%= label_tag "mail", "E-mail: " %>
 	<%= f.email_field :mail, required: true, placeholder: 'Ingrese un mail' %>
+	*
+	</p>
 	
-	</br>
-	
+	<p>
 	<%= label_tag "password1", "Password: " %>
-	<%= f.password_field :password , required: true, placeholder: 'Ingrese una Contraseña' %></label>
+	<%= f.password_field :password , required: true, placeholder: 'Ingrese una Contraseña' %>
+	*
+	</p>
 	
-	</br>
-	
+	<p>
 	<%= label_tag "password2", "Password: " %>
-	<%= f.password_field :pass , required: true, placeholder: 'Repita la Contraseña' %></label>
+	<%= f.password_field :pass , required: true, placeholder: 'Repita la Contraseña' %>
+	*
+	</p>
 	
-	</br>
-	
+	<p>
 	<%= label_tag "telefono", "Telefono: " %>
-	<%= f.telephone_field :tel , required: true, placeholder: 'Ingrese numero telefonico' %></label>
+	<%= f.telephone_field :tel , required: true, placeholder: 'Ingrese numero telefonico' %>
+	*  
+	<span style="color:blue">hola</span>
+	</p>
 	
-	</br>
+	<p>
 	<%= label_tag "credito", "Tarjeta: " %>
-	<%= f.number_field :credit , required: true, placeholder: 'Ingrese su numero de tarjeta' %></label>
-
-	</br>
-	<%= f.submit 'Guardar' %>
+	<%= f.text_field :credit , required: true, placeholder: 'Ingrese una tarjeta' %>
+	*
+	</p>
+	<% end %>
 	
 <% end %>

@@ -1,14 +1,15 @@
 <h1>Ingreso</h1>  
-  
-<%= form_tag do %>
 
-	<div class="field">  
-    <%= label_tag "Usuario" %>  
-    <%= text_field_tag :alias, params[:alias] %>  
-  </div>  
-  <div class="field">  
-    <%= label_tag :password %>  
-    <%= password_field_tag :password, params[:password] %>  
-  </div>  
+<%= form_tag do %>
+	<table>
+		<tr>
+			<td><%= label_tag "Usuario", "Alias: " %></td>
+			<td><%= text_field_tag :alias, params[:alias], placeholder: 'Ingrese su alias' %></td>
+		</tr>
+		<tr>
+			<td><%= label_tag "password", "Contrasena: " %></td>
+			<td><%= password_field_tag :password, params[:password], placeholder: 'Ingrese su contrasena' %></td>
+		</tr>
+	</table>
   <div class="actions"><%= submit_tag "Ingresar" %></div>  
 <% end %>

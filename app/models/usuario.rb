@@ -3,23 +3,22 @@ class Usuario < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
+	#------Validaciones---------
+	#nombre: 	presencia, formato
+	#alias:		presencia, formato, 		unico
+	#password:	presencia
+	#mail:		presencia, 					unico
+	#telefono:	presencia, 			numero, unico
+	#tarjeta: 	presencia, formato, numero,			tamaño
 	
-	validates_uniqueness_of :alias, :mail, :tel, :credit, message: "ya existe"
-	validates_numericality_of :tel, :credit, message: "debe ser un numero"
+	validates_uniqueness_of :alias, :mail, :tel, message: "Ya existe"
+	validates_numericality_of :tel, :credit, message: "Debe ser un numero"
+	validates_presence_of :nombre, :password, :alias, :mail, :tel, :credit, message: "Debe completarse"
+	#validates_length_of :credit, minimum: 16, maximum: 16, message: "Debe contener 16 caracteres"
 	validates :nombre,
-		presence: true,
 		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
-		
-	validates :password,
-		presence: true
-		
 	validates :alias,
-		presence: true,
 		format: { with: /\A[\w\.-]+\z/, message: "Solo puede tener letras, numeros o -, ., _"  }
-
-	validates :tel,
-		presence: true
-
 	validates :credit,
-		presence: true
+		format: { with: /\A[\d]+\z/, message: "Solo puede tener digitos numericos" }
 end
