@@ -31,12 +31,15 @@ class UsuariosController < ApplicationController
   end
 
   def create
-    @usuario.nombre = params[:usuario][:nombre]
+  @usuario.nombre = params[:usuario][:nombre]
 	@usuario.alias = params[:usuario][:alias]
 	@usuario.mail = params[:usuario][:mail]
 	@usuario.password = params[:usuario][:password]
 	@usuario.tel = params[:usuario][:tel]
 	@usuario.credit = params[:usuario][:credit]
+  @usuario.domicilio = params[:usuario][:domicilio]
+  @usuario.titular = params[:usuario][:titular]
+
     if @usuario.password == params[:usuario][:pass]
 		if @usuario.save
 			redirect_to root_url, :notice => "Registrado"
@@ -50,12 +53,25 @@ class UsuariosController < ApplicationController
   end
 
   def update
-    @usuario.nombre=params[:Usuario][:nombre]
-    #@usuario.imagen=params[:Usuario][:imagen]
-    @usuario.descripcion=params[:Usuario][:descripcion]
-    @usuario.password=params[:usuario][:password]
-    @usuario.save
-    redirect_to usuarios_path
+  @usuario.nombre = params[:usuario][:nombre]
+  @usuario.alias = params[:usuario][:alias]
+  @usuario.mail = params[:usuario][:mail]
+  @usuario.password = params[:usuario][:password]
+  @usuario.tel = params[:usuario][:tel]
+  @usuario.credit = params[:usuario][:credit]
+  @usuario.domicilio = params[:usuario][:domicilio]
+  @usuario.titular = params[:usuario][:titular]
+  
+    if @usuario.password == params[:usuario][:pass]
+    if @usuario.save
+      redirect_to root_url, :notice => "Datos modificados"
+    else
+      render 'update'
+    end
+  else
+    @usuario.errors[:password] = "ambos campos deben ser iguales"
+    render 'update'
+  end
   end
   def destroy
     @usuario.destroy

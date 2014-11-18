@@ -32,7 +32,7 @@
 		<tr>
 			<td><%= label_tag "alias", "Alias: " %></td>
 			<td><%= f.text_field :alias,size: 25, required: true, placeholder: 'Ingrese un alias' %></td>
-			<td> * <span style="color:blue">Solo letras, espacios, "."(punto) "-" o "_"(guiones). Se diferencian mayúsculas de minúsculas</span></td>
+			<td> * <span style="color:blue">Es el nombre con el cual se iniciará sesión. Solo letras, espacios, "."(punto) "-" o "_"(guiones). Se diferencian mayúsculas de minúsculas.</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "mail", "E-mail: " %></td>
@@ -42,7 +42,7 @@
 		<tr>
 			<td><%= label_tag "password1", "Contraseña: " %></td>
 			<td><%= f.password_field :password ,size: 25, required: true, placeholder: 'Ingrese una Contraseña' %></td>
-			<td>* <span style="color:blue">Alterne Mayúsculas, minúsculas, símboos y números para hacerla más segura</span></td>
+			<td>* <span style="color:blue">Alterne Mayúsculas, minúsculas, símbolos y números para hacerla más segura</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "password2", "Contraseña: " %></td>
@@ -66,9 +66,9 @@
 		</tr>
 		<tr>
 			<td><%= label_tag "vencimiento", "Vencimiento: " %></td>
-			<td><%= f.text_field :credit, size: 5, required: true %>
-				<%= f.text_field :credit, size: 5, required: true %></td>
-			<td>* <span style="color:blue">Ingrese mes en el primer campo y ultimos dos dígitos del año en el segundo campo</span></td>
+			<td><%= f.text_field :credit, size: 5, required: true, placeholder: 'Mes' %>
+				<%= f.text_field :credit, size: 5, required: true, placeholder: 'Año' %></td>
+			<td>* <span style="color:blue">Ingrese número de mes en el primer campo y ultimos dos dígitos del año en el segundo campo.</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "Domicilio", "Domicilio: " %></td>

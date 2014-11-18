@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -30,6 +32,6 @@ c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find
 c.save;
 
 p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun dia lo llego a cruzar este producto me vendria al pelo.', usuario: Usuario.find_by(alias: 'mr'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun día lo llego a cruzar este producto me vendria al pelo.', usuario: Usuario.find_by(alias: 'mr'));
 
 p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'));
