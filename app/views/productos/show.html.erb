@@ -1,6 +1,9 @@
 <h1><%= @producto.nombre %></h1>
-<p><%= @producto.descripcion %></p>
+
 <%= image_tag @producto.imagen, title: "Foto" %>
+<p><%= @producto.descripcion %></p>
+<p>Inicio de la subasta: <%= @producto.created_at %></p>
+<p>Fin de la subasta: <%= @producto.vencimiento %></p>
 
 <h2>Ofertas</h2>
 <% if @producto.ofertas.size > 0 %>

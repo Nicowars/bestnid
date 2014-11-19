@@ -22,13 +22,13 @@ o = Oferta.find_or_create_by(producto: p, detalle:'Soy carpintero y la necesito 
 
 p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta oriunda de Tilcara. Es mansita', imagen:'llama.jpg', usuario: Usuario.find_by(alias: 'cp'));
 o = Oferta.find_or_create_by(producto: p, detalle:'Siempre me gustaron los animales porque vivo solo y son buena compania. Una llama es justo lo que necesito.', usuario: Usuario.find_by(alias: 'mp'));
-c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find_by(alias: 'mr'));
+c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, pregunta: false);
+c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true, comentario: c);
 c.save;
-c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, comentario: c);
 
 p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg', usuario: Usuario.find_by(alias: 'cm'));
 o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro. Con este espejo no me convertiria en vampiro pero me ayudaria a sentirme uno.', usuario: Usuario.find_by(alias: 'rl'));
-c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), comentario: nil);
+c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true);
 c.save;
 
 p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'));
