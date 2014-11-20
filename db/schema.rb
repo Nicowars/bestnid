@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119212323) do
+ActiveRecord::Schema.define(version: 20141120215804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141119212323) do
     t.string   "domicilio"
     t.string   "credit"
     t.string   "titular"
+    t.date     "vencimiento"
   end
 
 end
