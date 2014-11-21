@@ -1,5 +1,6 @@
 <li>
-	<%= link_to producto.nombre, producto %></br>
+	<%= link_to producto.nombre, producto %> (Vence: <%= producto.vencimiento %>)
+	</br>
 	<%= image_tag producto.imagen, size:'200x200' %></br>
-	<%= producto.descripcion %>
+	<%= truncate(producto.descripcion) %>
 </li>

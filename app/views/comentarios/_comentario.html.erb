@@ -1,8 +1,9 @@
+<% if comentario.pregunta %>
 <li>
-	<% if comentario.pregunta %>
-		<b><%= comentario.detalle %></b></br>
+	<b><%= comentario.detalle %></b></br>
 	<% if comentario.comentario %>
 		<%= comentario.comentario.detalle %>
 	<% end %>
-	<% end %>
+	
 </li>
+<% end %>
