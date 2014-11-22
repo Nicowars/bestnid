@@ -37,8 +37,9 @@ class UsuariosController < ApplicationController
 	@usuario.password = params[:usuario][:password]
 	@usuario.tel = params[:usuario][:tel]
 	@usuario.credit = params[:usuario][:credit]
-  @usuario.domicilio = params[:usuario][:domicilio]
-  @usuario.titular = params[:usuario][:titular]
+	@usuario.domicilio = params[:usuario][:domicilio]
+	@usuario.titular = params[:usuario][:titular]
+	@usuario.vencimiento = params[:usuario][:vencimiento]
 
     if @usuario.password == params[:usuario][:pass]
 		if @usuario.save
@@ -61,6 +62,7 @@ class UsuariosController < ApplicationController
   @usuario.credit = params[:usuario][:credit]
   @usuario.domicilio = params[:usuario][:domicilio]
   @usuario.titular = params[:usuario][:titular]
+  @usuario.vencimiento = params[:usuario][:vencimiento]
   
     if @usuario.password == params[:usuario][:pass]
     if @usuario.save
