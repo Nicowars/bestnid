@@ -1,10 +1,47 @@
-<%= form_for(@producto) do |f| %>
-	<p><%= f.label :nombre %>
-	<%= f.text_field :nombre, required: true %></p>
-	
-	<p><%= f.label :descripcion %>
-	<%= f.text_field :mail, required: true %></p>
+﻿
 
+<%= form_for(@producto) do |f| %>
+
+	<% if @producto.errors.any? %>
+	<div id="error_explanation">
+	<% if @producto.errors.count > 1 %>
+		<h3 style="color:red"><%= @producto.errors.count %> errores</h1>
+	<% else %>
+		<h3 style="color:red"><%= @producto.errors.count %> error</h1>
+	<% end %>
+	
+	
+	<ul>
+	<% @producto.errors.full_messages.each do |msg| %>
+		<li style="color:red"><%== msg %></li>
+	<% end %>
+	</ul>
+	</div>
+	<% end %>
+	
+	<form action="/usuario" method="post">
+	
+	<p style="color:blue">Los campos con * son obligatorios</p>
+	
+	<table>
+		<tr>
+			<td> <%= label_tag "nombre", "Nombre: " %> </td>
+			<td> <%= f.text_field :nombre,size: 25, required: true, placeholder: 'Ingrese el nombre del producto' %> </td>
+			<td> * <span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span></td>
+		</tr>
+		<tr>
+			<td> <%= label_tag "descripcion", "Descripcion: " %> </td>
+			<td> <%= f.text_area :descripcion, required: true, placeholder: 'Ingrese una descripcion del producto', :cols => "40", :rows => "7" %> </td>
+			<td> * <span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span></td>
+		</tr>
+		<tr>
+			<td> <%= label_tag "foto", "Foto: " %> </td>
+			<td> <%= f.text_field :imagen, required: true, placeholder: 'Ingrese un nombre' %> </td>
+			<td> * <span style="color:blue">Ingrese la url de la imagen del producto</span></td>
+		</tr>
+	</table>
 	</br>
+	
 	<%= f.submit 'Guardar' %>
+	
 <% end %>
