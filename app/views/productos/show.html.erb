@@ -16,7 +16,9 @@
 	<% end %>
 <% else %>
 	<p>Debes ser dueño del producto para ver las ofertas.</p>
-	<p><%= link_to 'Mis ofertas', usuario_ofertas_path %></p>
+	<% if session[:usuario_id] %>
+		<p><%= link_to 'Mis ofertas', Usuario.find(session[:usuario_id]) %></p>
+	<% end %>
 <% end %>
 
 
