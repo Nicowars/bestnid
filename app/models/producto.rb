@@ -3,13 +3,9 @@ class Producto < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
+	validates_presence_of :nombre, :descripcion, :imagen, message: "Debe completarse"
 	validates :nombre,
-		presence: true,
-		uniqueness: true
-	validates :descripcion,
-		presence: true
-	validates :imagen,
-		presence: true
+		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
 
 
 def self.search(search)

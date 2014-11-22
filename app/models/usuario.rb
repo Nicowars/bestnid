@@ -27,7 +27,7 @@ class Usuario < ActiveRecord::Base
 	validates :credit,
 		format: { with: /\A[\d]+\z/, message: "Solo puede tener digitos numericos" }
 	validates :titular,
-		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
+		format: { with: /\A[A-Z\s]+\z/, message: "Solo puede tener letras mayusculas y espacios" }
 	validates :domicilio,
 		format: { with: /\A[\w\s]+\z/, message: "Solo puede tener letras, numeros o espacios"  }
 end
