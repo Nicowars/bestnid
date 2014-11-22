@@ -5,6 +5,7 @@ class SessionController < ApplicationController
     session[:usuario_id] = user.id  
     redirect_to root_url, :notice => "Conectado"  
   else  
+    flash.now.alert = "Alias o contraseña invalida"
     render "new", :notice => "Conectado"  
   end 
   end
