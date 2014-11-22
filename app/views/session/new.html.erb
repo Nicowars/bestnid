@@ -1,6 +1,6 @@
 <h1>Ingreso</h1>  
 
-<%= form_tag do %>
+<%= form_tag({:controller => "session", :action => "create"}, :method => "get") do %>
 	<table>
 		<tr>
 			<td><%= label_tag "Usuario", "Alias: " %></td>
