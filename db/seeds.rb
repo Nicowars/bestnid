@@ -37,5 +37,54 @@ c.save;
 
 p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d);
 o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun día lo llego a cruzar este producto me vendria al pelo.', usuario: Usuario.find_by(alias: 'mr'));
-
 p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), vencimiento: d);
+
+#-----------------------------
+#---------CATEGORIAS----------
+#-----------------------------
+c = Categoria.new(nombre: 'Animales');
+c.save;
+c = Categoria.new(nombre: 'Antiguedades');
+c.save;
+c = Categoria.new(nombre: 'Arte');
+c.save;
+c = Categoria.new(nombre: 'Bebes');
+c.save;
+c = Categoria.new(nombre: 'Camaras');
+c.save;
+c = Categoria.new(nombre: 'Celulares');
+c.save;
+c = Categoria.new(nombre: 'Coleccionables');
+c.save;
+c = Categoria.new(nombre: 'Computacion');
+c.save;
+c = Categoria.new(nombre: 'Enanos de jardin');
+c.save;
+c = Categoria.new(nombre: 'Deportes');
+c.save;
+c = Categoria.new(nombre: 'Electrodomesticos');
+c.save;
+c = Categoria.new(nombre: 'Electronica');
+c.save;
+c = Categoria.new(nombre: 'Hogar');
+c.save;
+c = Categoria.new(nombre: 'Instrumentos musicales');
+c.save;
+c = Categoria.new(nombre: 'Joyas y relojes');
+c.save;
+c = Categoria.new(nombre: 'Juguetes');
+c.save;
+c = Categoria.new(nombre: 'Libros');
+c.save;
+c = Categoria.new(nombre: 'Peliculas y musica');
+c.save;
+c = Categoria.new(nombre: 'Ropa');
+c.save;
+c = Categoria.new(nombre: 'Salud y belleza');
+c.save;
+c = Categoria.new(nombre: 'Otros');
+c.save;
+c = Categoria.new(nombre: 'Vehiculos');
+c.save;
+c = Categoria.new(nombre: 'videojuegos');
+c.save;
