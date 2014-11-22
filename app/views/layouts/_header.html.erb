@@ -1,4 +1,4 @@
-
+﻿
 <header>
   <div class="navbar navbar-fixed-top" role="navigation">
     <div class="container-fluid">
@@ -10,6 +10,7 @@
 
         <%= link_to "Regístrate", new_usuario_path, class: 'btn btn-default' %>
         <%= link_to "Usuarios", usuarios_path, class: 'btn btn-default' %>
+<%= link_to "Categorias", categoria_path, class: 'btn btn-default' %>
 
 		<% if session[:usuario_id]==nil %>
 			<%= link_to "Log in", session_new_path , class: 'btn btn-success' %>
