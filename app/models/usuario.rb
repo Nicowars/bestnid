@@ -30,4 +30,7 @@ class Usuario < ActiveRecord::Base
 		format: { with: /\A[A-Z\s]+\z/, message: "Solo puede tener letras mayusculas y espacios" }
 	validates :domicilio,
 		format: { with: /\A[\w\s]+\z/, message: "Solo puede tener letras, numeros o espacios"  }
+	validates :mail,
+		VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
+		format: { with: VALID_EMAIL_REGEX, message: "Debe tener el siguiente formato ing@comp.com" }
 end
