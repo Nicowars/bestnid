@@ -6,12 +6,19 @@
 <p>Fin de la subasta: <%= @producto.vencimiento %></p>
 
 <h2>Ofertas</h2>
-<% if @producto.ofertas.size > 0 %>
-	<ul>
-	<%= render @producto.ofertas %>
-</ul>
+<% if session[:usuario_id] == @producto.usuario_id %>
+	<% if @producto.ofertas.size > 0 %>
+		<ul>
+			<%= render @producto.ofertas %>
+		</ul>
+	<% else %>
+		<p>No hay ofertas</p>
+	<% end %>
 <% else %>
-	<p>No hay ofertas</p>
+	<p>Debes ser dueño del producto para ver las ofertas.</p>
+	<% if session[:usuario_id] %>
+		<p><%= link_to 'Mis ofertas', Usuario.find(session[:usuario_id]) %></p>
+	<% end %>
 <% end %>
 
 

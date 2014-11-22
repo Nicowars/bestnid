@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20141122194240) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "imagen"
     t.integer  "tel"
     t.string   "alias"
     t.string   "domicilio"

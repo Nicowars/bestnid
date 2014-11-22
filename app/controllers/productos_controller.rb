@@ -22,15 +22,19 @@ class ProductosController < ApplicationController
     @producto.nombre=params[:producto][:nombre]
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
-    @producto.save
-    redirect_to productos_path
+    if @producto.save
+          redirect_to productos_path, :notice => "Producto publicado"
+    else
+      render 'new'
+    end
   end
   def update
-    @producto.nombre=params[:producto][:nombre]
-    @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
-    @producto.save
-    redirect_to productos_path
+    if @producto.save
+     redirect_to productos_path, :notice => "Agregada descripcion"
+    else
+      render 'update'
+    end
   end
   def destroy
     @producto.destroy
