@@ -22,9 +22,18 @@ class ProductosController < ApplicationController
     @producto.nombre=params[:producto][:nombre]
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
-    if @producto.save
-          redirect_to productos_path, :notice => "Producto publicado"
+    v=params[:producto][:vencimiento].to_i
+    if v>14 && v>31  
+      d=Date.new(Time.now.year, Time.now.month, Time.now.day)
+      d=d.advance(:days => +v)
+      @producto.vencimiento=d
+      if @producto.save
+           redirect_to productos_path, :notice => "Producto publicado"
+      else
+       render 'new'
+      end
     else
+      @producto.errors[:vencimiento] = " debe ser entre 15 y 30"
       render 'new'
     end
   end

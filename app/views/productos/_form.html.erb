@@ -36,8 +36,13 @@
 		</tr>
 		<tr>
 			<td> <%= label_tag "foto", "Foto: " %> </td>
-			<td> <%= f.text_field :imagen, required: true, placeholder: 'Ingrese un nombre' %> </td>
+			<td> <%= f.text_field :imagen, required: true, placeholder: 'Ingrese la url de la imagen' %> </td>
 			<td> * <span style="color:blue">Ingrese la url de la imagen del producto</span></td>
+		</tr>
+		<tr>
+			<td> <%= label_tag "duracion", "Duracion: " %> </td>
+			<td> <%= f.text_field :vencimiento, required: true, placeholder: 'Ingrese la duracion de su subasta' %> </td>
+			<td> * <span style="color:blue">Ingrese la duracion de su subasta</span></td>
 		</tr>
 	</table>
 	</br>

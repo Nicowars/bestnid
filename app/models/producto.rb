@@ -4,7 +4,7 @@ class Producto < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
-	validates_presence_of :nombre, :descripcion, :imagen, message: "Debe completarse"
+	validates_presence_of :nombre, :descripcion, :imagen, :vencimiento, message: "Debe completarse"
 	validates :nombre,
 		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
 
