@@ -1,5 +1,6 @@
 class Producto < ActiveRecord::Base
 	belongs_to :usuario
+	belongs_to :categoria
 	has_many :ofertas
 	has_many :comentarios
 
