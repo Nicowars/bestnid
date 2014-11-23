@@ -64,14 +64,14 @@
 			<td>* <span style="color:blue">Solo letras mayúsculas y espacios</span></td>
 		</tr>
 		<tr>
-			<td><%= f.label :vencimiento, "Vencimiento: " %></td>
-			<td><%= f.date_field :vencimiento, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10, use_month_numbers: true %> </td>
-			<td>* <span style="color:blue">Elija año y mes de vencimiento de la tarjeta. El día no será tenido en cuenta</span></td>
+			<td> <%= label_tag "Vencimiento", "Vencimiento: " %> </td>
+			<td> <%= select_tag(:mes, options_for_select((1..12).step(1).to_a{|s| ["#{s}%", s]})) %><%= select_tag(:ano, options_for_select((Time.now.year..Time.now.year + 10).step(1).to_a{|s| ["#{s}%", s]})) %>
+			<td> * <span style="color:blue">Ingrese el mes y año de vencimiento de su tarjeta</span></td>	
 		</tr>
 		<tr>
 			<td><%= label_tag "Domicilio", "Domicilio: " %></td>
 			<td><%= f.text_field :domicilio ,size: 25, required: true, placeholder: 'Ingrese su domicilio' %></td>
-			<td>* <span style="color:blue">Ej: 52 n0000 e/ 38 y 39</span></td>
+			<td>* <span style="color:blue">Ej: 52 n0000 e 38 y 39</span></td>
 		</tr>	
 	</table>
 	</br>
