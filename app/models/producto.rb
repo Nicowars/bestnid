@@ -4,6 +4,8 @@ class Producto < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
+	after_validation :vence
+
 	validates_presence_of :nombre, :descripcion, :imagen, :vencimiento, message: "Debe completarse"
 	validates :nombre,
 		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
@@ -19,6 +21,10 @@ def self.search(search)
   else
     @productos = Producto.all
   end
+end
+
+def vence
+	self.vencido = Date.today > self.vencimiento
 end
 
 end
