@@ -1,7 +1,10 @@
 <h1><%= @usuario.alias %></h1>
-<h1><%= @usuario.vencimiento %></h1>
-<h1><%= @usuario.credit %></h1>
 </br>
+<p><%= @usuario.vencimiento %></p>
+<p><%= @usuario.credit %></p>
 </br>
 
-
+<h1>Ofertas<h2>
+<ul>
+	<% render @usuario.ofertas %>
+</ul>

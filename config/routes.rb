@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :comentarios
+
+  get 'ofertas/new' => 'ofertas#create'
+  resources :ofertas
+
   resources :productos
   resources :usuarios
   resources :categorias 

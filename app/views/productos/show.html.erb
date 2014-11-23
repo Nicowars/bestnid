@@ -16,10 +16,20 @@
 		<p>No hay ofertas</p>
 	<% end %>
 <% else %>
-	<p>Debes ser dueño del producto para ver las ofertas.</p>
+	<p>Debes ser dueño del producto para ver las ofertas.</p></br>
 	<% if session[:usuario_id] %>
 		<% if not @u_ofertas.include?(session[:usuario_id]) %>
-			<button class='btn btn-default'>Ofertar</button>
+			<p>Haga su oferta</p>
+			<% @oferta = Oferta.new %>
+			<%= form_for(@oferta, url: new_oferta_path, :method => 'get') do |f|%>
+			<%= f.text_area :detalle %>
+
+			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
+			<%= f.hidden_field :producto_id, :value => @producto.id %>
+
+			<%= f.submit 'Ofertar', class:'btn btn-default' %>
+			<% end %>
+
 		<% else %>
 			<p>Ya has ofertado sobre este producto</p>
 		<% end %>

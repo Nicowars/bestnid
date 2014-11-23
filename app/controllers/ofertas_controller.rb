@@ -19,11 +19,13 @@ class OfertasController < ApplicationController
   end
 
   def create
-  	@oferta.usuario=params[:oferta][:usuario]
-    @oferta.producto=params[:oferta][:producto]
+    usu = Usuario.find(params[:oferta][:usuario_id])
+    prod = Producto.find(params[:oferta][:producto_id])
+  	@oferta.usuario=usu
+    @oferta.producto=prod
     @oferta.detalle=params[:oferta][:detalle]
     @oferta.save
-    redirect_to params[:oferta][:producto]
+    redirect_to prod
   end
   def update
   	@oferta.usuario=params[:oferta][:usuario]

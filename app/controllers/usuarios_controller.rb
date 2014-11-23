@@ -1,6 +1,5 @@
 class UsuariosController < ApplicationController
 	before_action	:get,	only: [:show, :edit, :update, :destroy]
-  before_action :getOfertas, only: [:show]
   before_action	:new,	only: :create
 	#before_action	:comprobar,	only: :create
 	
@@ -17,10 +16,6 @@ class UsuariosController < ApplicationController
 	#end
   def get
     @usuario= Usuario.find(params[:id])
-  end
-  
-  def getOfertas(u)
-    @u_ofertas= Usuario.find(params[:id]).ofertas
   end
 
   def new
