@@ -65,7 +65,7 @@
 		</tr>
 		<tr>
 			<td><%= f.label :vencimiento, "Vencimiento: " %></td>
-			<td><%= f.date_select :vencimiento, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10, use_month_numbers: true %> </td>
+			<td><%= f.date_field :vencimiento, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10, use_month_numbers: true %> </td>
 			<td>* <span style="color:blue">Elija año y mes de vencimiento de la tarjeta.</span></td>
 		</tr>
 		<tr>
