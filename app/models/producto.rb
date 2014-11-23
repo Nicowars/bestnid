@@ -4,6 +4,14 @@ class Producto < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
+	default_scope -> { order("created_at desc") }
+	scope :recientes, -> { order("created_at desc") } 
+	scope :antiguos, -> { order("created_at asc")}
+	scope :avencer, -> { order("vencimiento asc")}
+	scope :alfabetico, -> { order("nombre asc")}
+	scope :categorico, -> { order("categoria asc")}
+	scope :hot, -> { order("ofertas.count")}
+	
 	validates_presence_of :nombre, :descripcion, :imagen, :vencimiento, message: "Debe completarse"
 	validates :nombre,
 		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
