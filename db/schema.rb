@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20141122203525) do
     t.datetime "updated_at"
     t.integer  "usuario_id"
     t.date     "vencimiento"
-    t.string   "categoria_id"
+    t.integer  "categoria_id"
   end
 
   create_table "usuarios", force: true do |t|
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20141122203525) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "imagen"
     t.integer  "tel"
     t.string   "alias"
     t.string   "domicilio"

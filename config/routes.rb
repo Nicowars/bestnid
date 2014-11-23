@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :productos
   resources :usuarios
+  resources :categorias 
 
   # Example resource route with options:
   #   resources :products do

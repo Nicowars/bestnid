@@ -18,27 +18,6 @@ u = Usuario.find_or_create_by(alias: 'cm', nombre:'Carlos Maidana', mail:'cm@bes
 u = Usuario.find_or_create_by(alias: 'cp', nombre:'Catalina Perez', mail:'cp@bestnid.com', password:'cp', tel:'6', credit:'6789101112131415', domicilio:'Hexagono', vencimiento:d, titular:'CATALINA PEREZ' );
 u = Usuario.find_or_create_by(alias: 'sr', nombre:'Sergio Ramirez', mail:'sr@bestnid.com', password:'cr', tel:'7', credit:'7891011121314151', domicilio:'Heptonogo', vencimiento:d, titular:'SERGIO RAMIREZ' );
 
-d= Date.new(2014,12,12);
-
-p = Producto.find_or_create_by(nombre:'Guantes de Acero', descripcion:'Guante de malla de acero inox. tejido, anticorte, marca manulatex de industria francesa', imagen:'guante.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d);
-o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdi un dedo trabajando. Me gustaria comprar el producto para que no me vuelva a ocurrir.', usuario: Usuario.find_by(alias: 'rm'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Soy carpintero y la necesito para cuando manejo la sierra.', usuario: Usuario.find_by(alias: 'rv'));
-
-p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta oriunda de Tilcara. Es mansita', imagen:'llama.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d);
-o = Oferta.find_or_create_by(producto: p, detalle:'Siempre me gustaron los animales porque vivo solo y son buena compania. Una llama es justo lo que necesito.', usuario: Usuario.find_by(alias: 'mp'));
-c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, pregunta: false);
-c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true, comentario: c);
-c.save;
-
-p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d);
-o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro. Con este espejo no me convertiria en vampiro pero me ayudaria a sentirme uno.', usuario: Usuario.find_by(alias: 'rl'));
-c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true);
-c.save;
-
-p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d);
-o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun día lo llego a cruzar este producto me vendria al pelo.', usuario: Usuario.find_by(alias: 'mr'));
-p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), vencimiento: d);
-
 #-----------------------------
 #---------CATEGORIAS----------
 #-----------------------------
@@ -88,3 +67,26 @@ c = Categoria.new(nombre: 'Vehiculos');
 c.save;
 c = Categoria.new(nombre: 'videojuegos');
 c.save;
+
+d= Date.new(2014,12,12);
+
+p = Producto.find_or_create_by(nombre:'Guantes de Acero', descripcion:'Guante de malla de acero inox. tejido, anticorte, marca manulatex de industria francesa', imagen:'guante.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdi un dedo trabajando. Me gustaria comprar el producto para que no me vuelva a ocurrir.', usuario: Usuario.find_by(alias: 'rm'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Soy carpintero y la necesito para cuando manejo la sierra.', usuario: Usuario.find_by(alias: 'rv'));
+
+p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta oriunda de Tilcara. Es mansita', imagen:'llama.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d,  categoria: Categoria.find_by(nombre: 'Animales'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Siempre me gustaron los animales porque vivo solo y son buena compania. Una llama es justo lo que necesito.', usuario: Usuario.find_by(alias: 'mp'));
+c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, pregunta: false);
+c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true, comentario: c);
+c.save;
+
+p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Hogar'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro. Con este espejo no me convertiria en vampiro pero me ayudaria a sentirme uno.', usuario: Usuario.find_by(alias: 'rl'));
+c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true);
+c.save;
+
+p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun día lo llego a cruzar este producto me vendria al pelo.', usuario: Usuario.find_by(alias: 'mr'));
+
+p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: d);
+
