@@ -30,7 +30,7 @@ class ProductosController < ApplicationController
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
     v=params[:producto][:vencimiento].to_i
-    if v>14 && v>31  
+    if v>14 && v<31  
       d=Date.new(Time.now.year, Time.now.month, Time.now.day)
       d=d.advance(:days => +v)
       @producto.vencimiento=d
