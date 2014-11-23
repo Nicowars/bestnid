@@ -21,8 +21,8 @@
 		<% if not @u_ofertas.include?(session[:usuario_id]) %>
 			<p>Haga su oferta</p>
 			<% @oferta = Oferta.new %>
-			<%= form_for(@oferta, url: new_oferta_path, :method => 'get') do |f|%>
-			<%= f.text_area :detalle %>
+			<%= form_for(@oferta, url: new_oferta_path, :method => 'get') do |f| %>
+			<%= f.text_area :detalle, placeholder: 'Cuentele al dueño porque quiere su producto', required: true %>
 
 			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
 			<%= f.hidden_field :producto_id, :value => @producto.id %>

@@ -8,7 +8,7 @@ class ProductosController < ApplicationController
   end
   def getUsuarios
     @u_ofertas={}
-    for i in 0..Producto.find(params[:id]).ofertas.size-1
+    for i in 0..Producto.find(params[:id]).ofertas.count-1
       @u_ofertas[i]= Producto.find(params[:id]).ofertas[i].usuario_id
     end
   end
@@ -30,7 +30,7 @@ class ProductosController < ApplicationController
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
     v=params[:producto][:vencimiento].to_i
-    if v>14 && v>31  
+    if v>14 && v<31  
       d=Date.new(Time.now.year, Time.now.month, Time.now.day)
       d=d.advance(:days => +v)
       @producto.vencimiento=d
