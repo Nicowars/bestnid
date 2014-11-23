@@ -8,7 +8,7 @@ class ProductosController < ApplicationController
   end
   def getUsuarios
     @u_ofertas={}
-    for i in 0..Producto.find(params[:id]).ofertas.size-1
+    for i in 0..Producto.find(params[:id]).ofertas.count-1
       @u_ofertas[i]= Producto.find(params[:id]).ofertas[i].usuario_id
     end
   end

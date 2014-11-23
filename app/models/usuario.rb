@@ -3,6 +3,8 @@ class Usuario < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
+	
+	
 	#------Validaciones---------
 	#nombre: 	presencia, formato
 	#alias:		presencia, formato, 		unico
@@ -19,7 +21,7 @@ class Usuario < ActiveRecord::Base
 	validates_uniqueness_of :alias, :mail, :tel, message: "Ya existe"
 	validates_numericality_of :tel, message: "Debe ser un numero"
 	validates_presence_of :nombre, :password, :alias, :mail, :tel, :credit, :domicilio, :vencimiento, :titular, message: "Debe completarse"
-	validates_length_of :credit, minimum: 16, maximum: 16, message: "Debe contener 16 caracteres"
+	validates_length_of :credit, minimum: 16, maximum: 16, message: "Debe contener 16 digitos"
 	validates :nombre,
 		format: { with: /\A[a-zA-Z\s]+\z/, message: "Solo puede tener letras y espacios" }
 	validates :alias,
