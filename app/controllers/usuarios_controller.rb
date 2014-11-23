@@ -39,18 +39,23 @@ class UsuariosController < ApplicationController
 	@usuario.credit = params[:usuario][:credit]
 	@usuario.domicilio = params[:usuario][:domicilio]
 	@usuario.titular = params[:usuario][:titular]
-	@usuario.vencimiento = params[:usuario][:vencimiento]
-
+  d = Date.new(params[:ano].to_i, params[:mes].to_i, 01)
+  @usuario.vencimiento=d
+  if d > Time.now
     if @usuario.password == params[:usuario][:pass]
-		if @usuario.save
-			redirect_to root_url, :notice => "Registrado"
-		else
-			render 'new'
-		end
-	else
-		@usuario.errors[:password] = "ambos campos deben ser iguales"
-		render 'new'
-	end
+	   	if @usuario.save
+	 	   	redirect_to root_url, :notice => "Registrado"
+		  else
+		  	render 'new'
+		  end
+	  else
+		  @usuario.errors[:password] = "ambos campos deben ser iguales"
+		  render 'new'
+	  end
+  else
+    @usuario.errors[:Vencimiento] = ": Tarjeta Vencida"
+    render 'new'
+  end
   end
 
   def update
