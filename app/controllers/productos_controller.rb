@@ -1,11 +1,18 @@
 class ProductosController < ApplicationController
   before_action	:get,		only: [:show, :edit, :update, :destroy]
+  before_action :getUsuarios, only: :show
   before_action	:new,		only: :create
   
   def get
     @producto= Producto.find(params[:id])
   end
-  
+  def getUsuarios
+    @u_ofertas={}
+    for i in 0..Producto.find(params[:id]).ofertas.size-1
+      @u_ofertas[i]= Producto.find(params[:id]).ofertas[i].usuario_id
+    end
+  end
+
   def new
     @producto= Producto.new
   end

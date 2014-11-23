@@ -1,3 +1,4 @@
+
 <h1><%= @producto.nombre %></h1>
 
 <%= image_tag @producto.imagen, title: "Foto" %>
@@ -17,6 +18,11 @@
 <% else %>
 	<p>Debes ser dueño del producto para ver las ofertas.</p>
 	<% if session[:usuario_id] %>
+		<% if not @u_ofertas.include?(session[:usuario_id]) %>
+			<button class='btn btn-default'>Ofertar</button>
+		<% else %>
+			<p>Ya has ofertado sobre este producto</p>
+		<% end %>
 		<p><%= link_to 'Mis ofertas', Usuario.find(session[:usuario_id]) %></p>
 	<% end %>
 <% end %>

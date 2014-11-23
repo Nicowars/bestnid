@@ -33,4 +33,5 @@ class Usuario < ActiveRecord::Base
 	#validates :mail,
 		#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
 		#format: { with: VALID_EMAIL_REGEX, message: "Debe tener el siguiente formato ing@comp.com" }
+
 end
