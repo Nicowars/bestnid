@@ -90,3 +90,5 @@ o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun d√
 
 p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: d);
 
+p = Producto.find_or_create_by(nombre:'Animales de Porcelana', descripcion:'Animales para decorar', imagen:'http://mlu-s1-p.mlstatic.com/1693-MLU29522838_6682-O.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: d);
+

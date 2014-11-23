@@ -12,11 +12,9 @@ class Producto < ActiveRecord::Base
 def self.search(search)
   if search
 	if Categoria.find_by(nombre: search)
-		@productos = where("descripcion = ? OR categoria_id = ?", search, Categoria.find_by(nombre: search).id)
+		@productos = where("categoria_id = ?", Categoria.find_by(nombre: search).id) | where('descripcion LIKE ? OR nombre LIKE ?', "%#{search}%", "%#{search}%")
 	else
-		#@productos = where("descripcion = ?", search)
-		#@productos = where("descripcion = ? OR nombre = ?", search, search)
-		@productos = where('descripcion LIKE ?', "%#{search}%")
+		@productos = where('descripcion LIKE ? OR nombre LIKE ?', "%#{search}%", "%#{search}%")
 	end
   else
     @productos = Producto.all
