@@ -44,7 +44,8 @@ class UsuariosController < ApplicationController
   if d > Time.now
     if @usuario.password == params[:usuario][:pass]
 	   	if @usuario.save
-	 	   	redirect_to root_url, :notice => "Registrado"
+        session[:usuario_id]=Usuario.find_by(alias: @usuario.alias).id
+	 	   	redirect_to root_url, :notice => "Registrado y logueado"
 		  else
 		  	render 'new'
 		  end
