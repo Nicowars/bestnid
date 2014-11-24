@@ -4,13 +4,6 @@ class Producto < ActiveRecord::Base
 	has_many :ofertas
 	has_many :comentarios
 
-	default_scope -> { order("created_at desc") }
-	scope :recientes, -> { order("created_at desc") } 
-	scope :antiguos, -> { order("created_at asc")}
-	scope :avencer, -> { order("vencimiento asc")}
-	scope :alfabetico, -> { order("nombre asc")}
-	scope :categorico, -> { order("categoria asc")}
-	scope :hot, -> { order("ofertas.count")}
 	
 	after_validation :vence
 

@@ -8,16 +8,12 @@
 		<form class="navbar-form navbar-left" role="search">
 		<%= form_tag productos_path, :method => 'get' do %>
 		<%= text_field_tag :search, params[:search] %>
+		<%= select_tag :orden, options_for_select(['Mas recientes', 'Mas antiguos', 'Por vencer', 'Alfabetico']) %>
 		<%= submit_tag "Buscar", :descripcion => nil, class:"btn btn-default" %>
 		<% end %>
-		<select name="orden">
-			<option value="" selected="selected">Mas recientes</option>
-			<option value="1">Mas antiguos</option>
-			<option value="2">Por vencer</option>
-			<option value="3">Alfabetico</option>
-			<option value="4">Categorico</option>
-			<option value="5">Mas ofertados</option>
-		</select>
+		
+			
+		
         </form>
 
 		</div>
@@ -25,26 +21,10 @@
  </div>
 
 <% if @productos.size > 0 %>
-	
-	<% # la idea es que la linea de abajo cambie dependiendo de lo que haya en el select %>
-	<% # pero no se preguntar por el contenido %>
-	<% # y de todas formas habria que recargar la pagina para que %>
-	<% # esto se ejecute cada vez que se cambia la opcion %>
-	<% rec = Producto.recientes %>
-	
-	<% rec.each do |p| %>
-		<ul>
-			<%= render p %>
-		</ul>
-	<% end %>
-	
-			<% # lacosa fea que hizo jaime %> 
-			<% if false %>
-			<ul>
-				<%= render @productos %>
-			</ul>
-			<% end %>
-	
+
+	<ul>
+		<%= render @productos %>
+	</ul>		
 <% else %>
 	<p>No hay productos</p>
 <% end %>

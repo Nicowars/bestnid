@@ -17,7 +17,19 @@ class ProductosController < ApplicationController
     @producto= Producto.new
   end
   def index
-    @productos= Producto.search(params[:search])
+	@productos= Producto.search(params[:search]).order("nombre asc")
+	if (params[:orden] == 'Mas recientes')
+		@productos= Producto.search(params[:search]).order("created_at desc")
+	end
+	if (params[:orden] == 'Mas antiguos')
+		@productos= Producto.search(params[:search]).order("created_at asc")
+	end
+	if (params[:orden] == 'Por vencer')
+		@productos= Producto.search(params[:search]).order("vencimiento asc")
+	end
+	if (params[:orden] == 'Alfabetico')
+		@productos= Producto.search(params[:search]).order("nombre asc")
+	end
   end
 
   def show
