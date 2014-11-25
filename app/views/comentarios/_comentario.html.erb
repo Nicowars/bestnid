@@ -3,6 +3,22 @@
 	<b><%= comentario.detalle %></b></br>
 	<% if comentario.comentario %>
 		<%= comentario.comentario.detalle %>
+	<% elsif session[:usuario_id] == @producto.usuario_id %>
+
+<%= form_for(@comentario, url: new_comentario_path, :method => 'get') do |f| %>
+			<%= f.text_area :detalle, required: true %>
+
+			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
+			<%= f.hidden_field :producto_id, :value => @producto.id %>
+
+			<%= f.hidden_field :pregunta, :value => "false" %>
+			<%= f.hidden_field :com, :value => comentario.id %>
+
+			<div>
+				<%= f.submit 'Responder', class:'btn btn-default' %>
+			</div>
+			<% end %>
+
 	<% end %>
 	
 </li>
