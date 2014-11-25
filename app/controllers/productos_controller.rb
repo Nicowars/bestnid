@@ -31,6 +31,9 @@ class ProductosController < ApplicationController
 	if (params[:orden] == 'Alfabetico')
 		@productos= Producto.search(params[:search]).order("nombre asc")
 	end
+  if !params[:mostrar_v]
+    @productos= @productos.where("vencido = false")
+  end
   end
 
   def show
