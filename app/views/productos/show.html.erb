@@ -7,7 +7,9 @@
 <p>Fin de la subasta: <%= @producto.vencimiento %></p>
 
 <h2>Ofertas</h2>
+<% # si es dueño del producto %>
 <% if session[:usuario_id] == @producto.usuario_id %>
+	<% # si hay ofertas %>
 	<% if @producto.ofertas.size > 0 %>
 		<ul>
 			<%= render @producto.ofertas %>
@@ -17,20 +19,29 @@
 	<% end %>
 <% else %>
 	<p>Debes ser dueño del producto para ver las ofertas.</p></br>
+	<% # si esta logueado %>
 	<% if session[:usuario_id] %>
-		
-		<% if not @u_ofertas.include?(session[:usuario_id]) %>
+	
+		<% oferto= false %>
+		<% # busca en todas las ofertas %>
+		<% #si existe una perteneciente al usuario %>
+		<% @u_ofertas.each do |o| %>
+			<% if o[1] == session[:usuario_id] %>
+				<% oferto= true %>
+			<% end %>
+		<% end %>
+
+		<% if not oferto %>
 			<p>Haga su oferta</p>
 			<% @oferta = Oferta.new %>
 			<%= form_for(@oferta, url: new_oferta_path, :method => 'get') do |f| %>
-			<%= f.text_area :detalle, placeholder: 'Cuentele al dueño porque quiere su producto', required: true %>
-
+			<%= f.text_area :detalle, size: "36x4", placeholder: 'Cuentele al dueño porque quiere su producto', required: true %>
 			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
 			<%= f.hidden_field :producto_id, :value => @producto.id %>
 			<div>
 				<%= f.submit 'Ofertar', class:'btn btn-default' %>
 			</div>
-			<% end %>
+		<% end %>
 
 		<% else %>
 			<p>Ya has ofertado sobre este producto</p>
@@ -52,7 +63,7 @@
 <% if session[:usuario_id]!=nil  && session[:usuario_id]!=@producto.usuario_id %>
 	<% @comentario = Comentario.new %>
 			<%= form_for(@comentario, url: new_comentario_path, :method => 'get') do |f| %>
-			<%= f.text_area :detalle, placeholder: 'Comente su opinión', required: true %>
+			<%= f.text_area :detalle, size: "36x4", placeholder: 'Comente su opinión', required: true %>
 
 			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
 			<%= f.hidden_field :producto_id, :value => @producto.id %>
