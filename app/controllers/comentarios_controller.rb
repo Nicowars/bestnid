@@ -19,7 +19,12 @@ class ComentariosController < ApplicationController
   end
 
   def create
+  if params[:comentario][:usuario_id]!=""
     usu = Usuario.find(params[:comentario][:usuario_id])
+  else
+    usu = nil
+  end
+
     prod = Producto.find(params[:comentario][:producto_id])
 	  ask = params[:comentario][:pregunta] == "true" 
 
