@@ -21,11 +21,14 @@ class OfertasController < ApplicationController
   def create
     usu = Usuario.find(params[:oferta][:usuario_id])
     prod = Producto.find(params[:oferta][:producto_id])
-  	@oferta.usuario=usu
-    @oferta.producto=prod
+  	@oferta.usuario = usu
+    @oferta.producto = prod
     @oferta.detalle=params[:oferta][:detalle]
+    if params[:oferta][:monto]
+      @oferta.monto = params[:oferta][:monto]
+    end
     @oferta.save
-    redirect_to prod
+    redirect_to prod, :notice => 'Oferta realizada satisfactoriamente'
   end
   def update
   	@oferta.usuario=params[:oferta][:usuario]

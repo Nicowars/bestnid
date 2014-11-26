@@ -36,6 +36,7 @@
 			<% @oferta = Oferta.new %>
 			<%= form_for(@oferta, url: new_oferta_path, :method => 'get') do |f| %>
 			<%= f.text_area :detalle, size: "36x4", placeholder: 'Cuentele al dueño porque quiere su producto', required: true %>
+			<%= f.number_field :monto, placeholder: 'Cuanto pagaría?' %>
 			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
 			<%= f.hidden_field :producto_id, :value => @producto.id %>
 			<div>
@@ -47,6 +48,8 @@
 			<p>Ya has ofertado sobre este producto</p>
 		<% end %>
 		<p><%= link_to 'Mis ofertas', Usuario.find(session[:usuario_id]) %></p>
+	<% else %>
+	<p><%= link_to "Conéctese", session_new_path %> o <%= link_to "Regístrese", new_usuario_path %> para ofertar</p>
 	<% end %>
 <% end %>
 
