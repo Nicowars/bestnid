@@ -26,7 +26,7 @@
 		<tr>
 			<td> <%= label_tag "nombre", "Nombre: " %> </td>
 			<td> <%= f.text_field :nombre,size: 25, required: true, placeholder: 'Ingrese un nombre' %> </td>
-			<td> * <span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span></td>
+			<td> * <span style="color:blue">Solo letras sin tildes ni eñes y espacios. Se diferencian mayúsculas de minúsculas</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "alias", "Alias: " %></td>
@@ -61,7 +61,7 @@
 		<tr>
 			<td><%= label_tag "titular", "Titular: " %></td>
 			<td><%= f.text_field :titular ,size: 25, required: true, placeholder: 'Ingrese el dueño de la tarjeta' %></td>
-			<td>* <span style="color:blue">Solo letras mayúsculas y espacios</span></td>
+			<td>* <span style="color:blue">Solo letras mayúsculas sin tildes ni eñes y espacios</span></td>
 		</tr>
 		<tr>
 			<td> <%= label_tag "Vencimiento", "Vencimiento: " %> </td>

@@ -60,7 +60,7 @@
 	<p>No hay comentarios</p>
 <% end %>
 	
-<% if session[:usuario_id]!=nil  && session[:usuario_id]!=@producto.usuario_id %>
+<% if session[:usuario_id]!=@producto.usuario_id %>
 	<% @comentario = Comentario.new %>
 			<%= form_for(@comentario, url: new_comentario_path, :method => 'get') do |f| %>
 			<%= f.text_area :detalle, size: "36x4", placeholder: 'Comente su opinión', required: true %>
