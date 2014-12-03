@@ -1,13 +1,16 @@
 
-<h1><%= @producto.nombre %></h1>
 
+<h1><%= @producto.nombre %></h1>
+<h3>Categoria: <%= @producto.categoria.nombre %></h3>
 <%= image_tag @producto.imagen, title: "Foto" %>
 <p><%= @producto.descripcion %></p>
 <p>Inicio de la subasta: <%= @producto.created_at %></p>
 <p>Fin de la subasta: <%= @producto.vencimiento %></p>
 
 <h2>Ofertas</h2>
+<% # si es dueño del producto %>
 <% if session[:usuario_id] == @producto.usuario_id %>
+	<% # si hay ofertas %>
 	<% if @producto.ofertas.size > 0 %>
 		<ul>
 			<%= render @producto.ofertas %>
@@ -17,27 +20,39 @@
 	<% end %>
 <% else %>
 	<p>Debes ser dueño del producto para ver las ofertas.</p></br>
+	<% # si esta logueado %>
 	<% if session[:usuario_id] %>
-		<% if not @u_ofertas.include?(session[:usuario_id]) %>
+	
+		<% oferto= false %>
+		<% # busca en todas las ofertas %>
+		<% #si existe una perteneciente al usuario %>
+		<% @u_ofertas.each do |o| %>
+			<% if o[1] == session[:usuario_id] %>
+				<% oferto= true %>
+			<% end %>
+		<% end %>
+
+		<% if not oferto %>
 			<p>Haga su oferta</p>
 			<% @oferta = Oferta.new %>
 			<%= form_for(@oferta, url: new_oferta_path, :method => 'get') do |f| %>
-			<%= f.text_area :detalle, placeholder: 'Cuentele al dueño porque quiere su producto', required: true %>
-
+			<%= f.text_area :detalle, size: "36x4", placeholder: 'Cuentele al dueño porque quiere su producto', required: true %>
+			$ <%= f.number_field :monto, placeholder: 'Cuanto pagaría?', required: true %>
 			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
 			<%= f.hidden_field :producto_id, :value => @producto.id %>
 			<div>
 				<%= f.submit 'Ofertar', class:'btn btn-default' %>
 			</div>
-			<% end %>
+		<% end %>
 
 		<% else %>
 			<p>Ya has ofertado sobre este producto</p>
 		<% end %>
 		<p><%= link_to 'Mis ofertas', Usuario.find(session[:usuario_id]) %></p>
+	<% else %>
+	<p><%= link_to "Conéctese", session_new_path %> o <%= link_to "Regístrese", new_usuario_path %> para ofertar</p>
 	<% end %>
 <% end %>
-
 
 <h2>Comentarios</h2>
 <% if @producto.comentarios.size > 0 %>
@@ -48,10 +63,10 @@
 	<p>No hay comentarios</p>
 <% end %>
 	
-<% if session[:usuario_id]!=nil  && session[:usuario_id]!=@producto.usuario_id %>
+<% if session[:usuario_id]!=@producto.usuario_id %>
 	<% @comentario = Comentario.new %>
 			<%= form_for(@comentario, url: new_comentario_path, :method => 'get') do |f| %>
-			<%= f.text_area :detalle, placeholder: 'Comente su opinión', required: true %>
+			<%= f.text_area :detalle, size: "36x4", placeholder: 'Comente su opinión', required: true %>
 
 			<%= f.hidden_field :usuario_id, :value => session[:usuario_id] %>
 			<%= f.hidden_field :producto_id, :value => @producto.id %>
@@ -61,5 +76,4 @@
 			</div>
 			<% end %>
 <% end %>
-	
 

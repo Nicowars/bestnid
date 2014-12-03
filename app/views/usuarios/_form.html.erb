@@ -26,12 +26,12 @@
 		<tr>
 			<td> <%= label_tag "nombre", "Nombre: " %> </td>
 			<td> <%= f.text_field :nombre,size: 25, required: true, placeholder: 'Ingrese un nombre' %> </td>
-			<td> * <span style="color:blue">Solo letras y espacios. Se diferencian mayúsculas de minúsculas</span></td>
+			<td> * <span style="color:blue">Solo letras sin tildes ni eñes y espacios. Se diferencian mayúsculas de minúsculas</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "alias", "Alias: " %></td>
 			<td><%= f.text_field :alias,size: 25, required: true, placeholder: 'Ingrese un alias' %></td>
-			<td> * <span style="color:blue">Es el nombre con el cual se iniciará sesión. Solo letras, espacios, "."(punto) "-" o "_"(guiones). Se diferencian mayúsculas de minúsculas.</span></td>
+			<td> * <span style="color:blue">Es el nombre con el cual se iniciará sesión. Solo letras, "."(punto) "-" o "_"(guiones). Se diferencian mayúsculas de minúsculas.</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "mail", "E-mail: " %></td>
@@ -55,13 +55,13 @@
 		</tr>
 		<tr>
 			<td><%= label_tag "credito", "Tarjeta: " %></td>
-			<td><%= f.text_field :credit ,size: 25, required: true, placeholder: 'Ingrese una tarjeta' %></td>
+			<td><%= f.text_field :credit ,size: 25, required: true, placeholder: 'Ingrese el número de tarjeta' %></td>
 			<td>* <span style="color:blue">Omita separaciones entre dígitos</span></td>
 		</tr>
 		<tr>
 			<td><%= label_tag "titular", "Titular: " %></td>
 			<td><%= f.text_field :titular ,size: 25, required: true, placeholder: 'Ingrese el dueño de la tarjeta' %></td>
-			<td>* <span style="color:blue">Solo letras mayúsculas y espacios</span></td>
+			<td>* <span style="color:blue">Solo letras mayúsculas sin tildes ni eñes y espacios</span></td>
 		</tr>
 		<tr>
 			<td> <%= label_tag "Vencimiento", "Vencimiento: " %> </td>

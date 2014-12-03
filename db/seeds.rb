@@ -69,6 +69,7 @@ c = Categoria.new(nombre: 'videojuegos');
 c.save;
 
 d= Date.new(2014,12,12);
+dv= Date.new(2013,11,11);
 
 p = Producto.find_or_create_by(nombre:'Guantes de Acero', descripcion:'Guante de malla de acero inox. tejido, anticorte, marca manulatex de industria francesa', imagen:'guante.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
 o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdi un dedo trabajando. Me gustaria comprar el producto para que no me vuelva a ocurrir.', usuario: Usuario.find_by(alias: 'rm'));
@@ -88,7 +89,7 @@ c.save;
 p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
 o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algun día lo llego a cruzar este producto me vendria al pelo.', usuario: Usuario.find_by(alias: 'mr'));
 
-p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: d);
+p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: dv);
 
 p = Producto.find_or_create_by(nombre:'Animales de Porcelana', descripcion:'Animales para decorar', imagen:'http://mlu-s1-p.mlstatic.com/1693-MLU29522838_6682-O.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: d);
 

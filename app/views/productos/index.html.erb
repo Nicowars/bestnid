@@ -8,8 +8,15 @@
 		<form class="navbar-form navbar-left" role="search">
 		<%= form_tag productos_path, :method => 'get' do %>
 		<%= text_field_tag :search, params[:search] %>
+		<span>Ordenar por:</span>
+		<%= select_tag :orden, options_for_select(['Mas recientes', 'Mas antiguos', 'Por vencer', 'Alfabetico']) %>
+		<span>Mostrar productos vencidos</span>
+		<%= check_box_tag :mostrar_v %>
 		<%= submit_tag "Buscar", :descripcion => nil, class:"btn btn-default" %>
 		<% end %>
+		
+			
+		
         </form>
 
 		</div>
@@ -17,9 +24,10 @@
  </div>
 
 <% if @productos.size > 0 %>
+
 	<ul>
-	<%= render @productos %>
-</ul>
+		<%= render @productos %>
+	</ul>		
 <% else %>
 	<p>No hay productos</p>
 <% end %>

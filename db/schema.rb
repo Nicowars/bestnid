@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122203525) do
+ActiveRecord::Schema.define(version: 20141203194017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20141122203525) do
   end
 
   create_table "comentarios", force: true do |t|
-    t.string   "detalle"
+    t.text     "detalle"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "usuario_id"
@@ -33,22 +33,24 @@ ActiveRecord::Schema.define(version: 20141122203525) do
   end
 
   create_table "oferta", force: true do |t|
-    t.string   "detalle"
+    t.text     "detalle"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "producto_id"
     t.integer  "usuario_id"
+    t.integer  "monto"
   end
 
   create_table "productos", force: true do |t|
     t.string   "nombre"
-    t.string   "descripcion"
+    t.text     "descripcion"
     t.string   "imagen"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "usuario_id"
     t.date     "vencimiento"
     t.integer  "categoria_id"
+    t.boolean  "vencido"
   end
 
   create_table "usuarios", force: true do |t|
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 20141122203525) do
     t.string   "credit"
     t.string   "titular"
     t.date     "vencimiento"
+    t.date     "nac"
   end
 
 end
