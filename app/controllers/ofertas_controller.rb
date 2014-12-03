@@ -27,9 +27,13 @@ class OfertasController < ApplicationController
     if params[:oferta][:monto]
       @oferta.monto = params[:oferta][:monto]
     end
-    @oferta.save
-    redirect_to prod, :notice => 'Oferta realizada satisfactoriamente'
+    if @oferta.save
+      redirect_to prod, :notice => 'Oferta realizada satisfactoriamente'
+    else
+      redirect_to prod, :notice => 'Debes ofertar al menos un peso'
+    end
   end
+
   def update
   	@oferta.usuario=params[:oferta][:usuario]
     @oferta.producto=params[:oferta][:producto]

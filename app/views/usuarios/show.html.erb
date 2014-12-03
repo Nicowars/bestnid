@@ -1,10 +1,13 @@
 <h1><%= @usuario.alias %></h1>
-</br>
-<p><%= @usuario.vencimiento %></p>
-<p><%= @usuario.credit %></p>
-</br>
 
-<h1>Ofertas</h1>
+<h2>Mis productos</h2>
 <ul>
-	<% render @usuario.ofertas %>
+	<% @usuario.productos.each do |p| %>
+		<li>
+			<%= link_to p.nombre, p %>
+		</li>
+	<% end %>
+	<% if @usuario.productos.count == 0 %>
+		Usted no ha publicado productos.
+	<% end %>
 </ul>
