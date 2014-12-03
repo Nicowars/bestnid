@@ -39,25 +39,37 @@ class UsuariosController < ApplicationController
 	@usuario.credit = params[:usuario][:credit]
 	@usuario.domicilio = params[:usuario][:domicilio]
 	@usuario.titular = params[:usuario][:titular]
-  d = Date.new(params[:ano].to_i, params[:mes].to_i, 01)
-  @usuario.vencimiento=d
-  if d > Time.now
-    if @usuario.password == params[:usuario][:pass]
+	d = Date.new(params[:ano].to_i, params[:mes].to_i, 01)
+	@usuario.vencimiento=d
+		f = ""	#error de fecha
+		p = ""	#error de pass
+		if d <= Time.now
+			f = ": Tarjeta Vencida"
+		end
+		if @usuario.password != params[:usuario][:pass]
+			p = "ambos campos deben ser iguales"
+		end
 	   	if @usuario.save
-        session[:usuario_id]=Usuario.find_by(alias: @usuario.alias).id
-	 	   	redirect_to root_url, :notice => "Registrado y conectado"
-		  else
-		  	render 'new'
-		  end
-	  else
-		  @usuario.errors[:password] = "ambos campos deben ser iguales"
-		  render 'new'
-	  end
-  else
-    @usuario.errors[:Vencimiento] = ": Tarjeta Vencida"
-    render 'new'
-  end
-  end
+			if p == "" && f = ""
+				session[:usuario_id]=Usuario.find_by(alias: @usuario.alias).id
+				redirect_to root_url, :notice => "Registrado y conectado"
+			else
+				if p != ""
+					@usuario.errors[:password] = "ambos campos deben ser iguales"
+				end
+				if f != ""
+					@usuario.errors[:Vencimiento] = ": Tarjeta Vencida"
+				end
+				@usuario.destroy
+				render 'new'
+			end
+		else
+			if p != ""
+				@usuario.errors[:password] = "ambos campos deben ser iguales"
+				render 'new'
+			end
+		end
+end
 
   def update
   @usuario.nombre = params[:usuario][:nombre]
@@ -83,7 +95,7 @@ class UsuariosController < ApplicationController
   end
   def destroy
     @usuario.destroy
-    redirect_to usuarios_path
+ #   redirect_to usuarios_path
   end
 
 end

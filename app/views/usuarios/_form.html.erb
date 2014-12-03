@@ -3,7 +3,7 @@
 <%= form_for(@usuario) do |f| %>
 	
 	<% if @usuario.errors.any? %>
-	<div id="error_explanation">
+		<div id="error_explanation">
 	<% if @usuario.errors.count > 1 %>
 		<h3 style="color:red"><%= @usuario.errors.count %> errores</h1>
 	<% else %>
