@@ -16,8 +16,8 @@
 			<%= link_to "Log in", session_new_path , class: 'btn btn-success' %>
 			<%= link_to "Regístrate", new_usuario_path, class: 'btn btn-default' %>
 		<% else %>
-      <%= link_to "Subastar", new_producto_path, class: 'btn btn-default' %>
-	    <%= link_to "Log out", session_destroy_path, class: 'btn btn-default' %>
+			<%= link_to "Subastar", new_producto_path, class: 'btn btn-default' %>
+			<%= link_to "Log out", session_destroy_path, class: 'btn btn-default' %>
 		<% end %>
 		<form class="navbar-form navbar-right" role="search">
         <button>Ayuda</button>
