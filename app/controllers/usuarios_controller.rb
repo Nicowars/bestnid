@@ -41,6 +41,7 @@ class UsuariosController < ApplicationController
 	@usuario.domicilio = params[:usuario][:domicilio]
 	@usuario.titular = params[:usuario][:titular]
 	@usuario.vencimiento = d
+	@usuario.admin = false
 	@usuario.nac = params[:usuario][:nac]
 		i = ""
 		b = ""
