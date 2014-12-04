@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :ofertas
   get 'comentarios/new' => 'comentarios#create'
   resources :comentarios
+  #get 'usuarios/delete' => 'usuarios#destroy'
 
   resources :productos
   resources :usuarios

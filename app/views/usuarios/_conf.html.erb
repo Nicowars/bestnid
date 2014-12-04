@@ -1,0 +1,6 @@
+<% @usuario = Usuario.new %>
+<%= form_for(@usuario, url: delete_usuario_path, :method => 'delete') do |f| %>
+<%= f.password_field :password, placeholder: 'Ingrese su contraseña', required: true %>
+<div>
+	<%= f.submit 'Confirmar', class:'btn btn-danger' %>
+</div>
