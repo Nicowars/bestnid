@@ -31,7 +31,8 @@ class UsuariosController < ApplicationController
   end
 
   def create
-  @usuario.nombre = params[:usuario][:nombre]
+	d = Date.new(params[:ano].to_i, params[:mes].to_i, 01)
+	@usuario.nombre = params[:usuario][:nombre]
 	@usuario.alias = params[:usuario][:alias]
 	@usuario.mail = params[:usuario][:mail]
 	@usuario.password = params[:usuario][:password]
@@ -39,35 +40,62 @@ class UsuariosController < ApplicationController
 	@usuario.credit = params[:usuario][:credit]
 	@usuario.domicilio = params[:usuario][:domicilio]
 	@usuario.titular = params[:usuario][:titular]
-	d = Date.new(params[:ano].to_i, params[:mes].to_i, 01)
-	@usuario.vencimiento=d
+	@usuario.vencimiento = d
+	@usuario.nac = params[:usuario][:nac]
+		i = ""
+		b = ""
 		f = ""	#error de fecha
 		p = ""	#error de pass
+#		if @usuario.nac > Date.new(Time.now.day.to_i, Time.now.month.to_i, (Time.now.year.to_i - 18))
+		
+
+		if @usuario.nac > Time.now
+			i = " => Usted debe nacer para poder registrarse"
+		else
+			if @usuario.nac > Date.new(Time.now.year.to_i - 18, Time.now.month.to_i, Time.now.day.to_i)
+				b = " => Usted debe ser mayor de 18 para poder registrarse"
+			end
+		end
 		if d <= Time.now
-			f = ": Tarjeta Vencida"
+			f = " => Tarjeta Vencida"
 		end
 		if @usuario.password != params[:usuario][:pass]
-			p = "ambos campos deben ser iguales"
+			p = " => ambos campos deben ser iguales"
 		end
 	   	if @usuario.save
-			if p == "" && f = ""
+			if p == "" && f = "" && i = "" && b = ""
 				session[:usuario_id]=Usuario.find_by(alias: @usuario.alias).id
 				redirect_to root_url, :notice => "Registrado y conectado"
 			else
 				if p != ""
-					@usuario.errors[:password] = "ambos campos deben ser iguales"
+					@usuario.errors[:contrasena] = p
+				end
+				if b != ""
+					@usuario.errors[:nacimiento] = b
+				end
+				if i != ""
+					@usuario.errors[:nacimiento] = i
 				end
 				if f != ""
-					@usuario.errors[:Vencimiento] = ": Tarjeta Vencida"
+					@usuario.errors[:Vencimiento] = f
 				end
 				@usuario.destroy
 				render 'new'
 			end
 		else
 			if p != ""
-				@usuario.errors[:password] = "ambos campos deben ser iguales"
-				render 'new'
+				@usuario.errors[:contrasena] = p
 			end
+			if b != ""
+				@usuario.errors[:nacimiento] = b
+			end
+			if i != ""
+				@usuario.errors[:nacimiento] = i
+			end
+			if f != ""
+				@usuario.errors[:Vencimiento] = f
+			end
+			render 'new'
 		end
 end
 
@@ -81,6 +109,7 @@ end
   @usuario.domicilio = params[:usuario][:domicilio]
   @usuario.titular = params[:usuario][:titular]
   @usuario.vencimiento = params[:usuario][:vencimiento]
+  @usuario.nac = params[:usuario][:nac]
   
     if @usuario.password == params[:usuario][:pass]
     if @usuario.save
