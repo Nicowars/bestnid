@@ -3,7 +3,7 @@
 <%= form_for(@usuario) do |f| %>
 	
 	<% if @usuario.errors.any? %>
-	<div id="error_explanation">
+		<div id="error_explanation">
 	<% if @usuario.errors.count > 1 %>
 		<h3 style="color:red"><%= @usuario.errors.count %> errores</h1>
 	<% else %>
@@ -73,6 +73,11 @@
 			<td><%= f.text_field :domicilio ,size: 25, required: true, placeholder: 'Ingrese su domicilio' %></td>
 			<td>* <span style="color:blue">Ej: 52 n0000 e 38 y 39</span></td>
 		</tr>	
+		<tr>
+			<td> <%= label_tag "Nacimiento", "Nacimiento: " %> </td>
+			<td> <%= f.date_field :nac %> </td>
+			<td> * <span style="color:blue">Debe ser mayor de 18 para poder registrarse</span></td>	
+		</tr>
 	</table>
 	</br>
 	<%= f.submit 'Guardar' %>
