@@ -1,8 +1,8 @@
 class Producto < ActiveRecord::Base
 	belongs_to :usuario
 	belongs_to :categoria
-	has_many :ofertas
-	has_many :comentarios
+	has_many :ofertas, dependent: :destroy
+	has_many :comentarios, dependent: :destroy
 
 	
 	after_validation :vence

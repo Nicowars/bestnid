@@ -82,8 +82,9 @@ class UsuariosController < ApplicationController
   end
   end
   def destroy
+	session[:usuario_id] = nil  
     @usuario.destroy
-    redirect_to usuarios_path
+    redirect_to root_url, :notice=>"Su cuenta ha sido eliminada"
   end
 
 end

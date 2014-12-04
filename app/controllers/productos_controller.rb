@@ -45,6 +45,7 @@ class ProductosController < ApplicationController
     @producto.nombre=params[:producto][:nombre]
     @producto.imagen=params[:producto][:imagen]
     @producto.descripcion=params[:producto][:descripcion]
+	@producto.categoria=Categoria.find(params[:producto][:categoria_id])
     if session[:usuario_id]!=nil
       @producto.usuario_id=session[:usuario_id]
       v=params[:producto][:vencimiento].to_i
