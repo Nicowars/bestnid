@@ -93,8 +93,8 @@ Rails.application.configure do
       :port                 => 587,
       :domain               => 'bestnid-alpha.herokuapp.com',
 
-      :user_name            => 'SMTP_USERNAME',
-      :password             => 'SMTP_PASSWORD',
+      :user_name            => ENV['SMTP_USERNAME'],
+      :password             => ENV['SMTP_PASSWORD'],
 
       :authentication       => :plain,
       :enable_starttls_auto => true
