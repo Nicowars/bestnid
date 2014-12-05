@@ -7,14 +7,16 @@
         <%= link_to root_path do %>
          <%= image_tag "logo.png", class: "logo" %>
         <% end %>
-
-        
-        
-
+		
+		
 		<% if session[:usuario_id]==nil %>
 			<%= link_to "Conectarse", session_new_path , class: 'btn btn-success' %>
 			<%= link_to "Regístrate", new_usuario_path, class: 'btn btn-default' %>
 		<% else %>
+			<% if Usuario.find(session[:usuario_id]).admin == true%>
+				<%= link_to "Estadisticas", estadisticas_show_path, class: 'btn btn-default' %>
+			<% end %>
+			<% link_to "Estadisticas", estadisticas_show_path, class: 'btn btn-default' %>
 			<%= link_to Usuario.find(session[:usuario_id]).nombre, Usuario.find(session[:usuario_id]), class: 'btn btn-primary' %>
 			<%= Usuario.find(session[:usuario_id]).admin %>
 			<%= link_to "Subastar", new_producto_path, class: 'btn btn-default' %>
