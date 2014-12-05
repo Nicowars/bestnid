@@ -72,23 +72,23 @@ c.save;
 d= Date.new(2014,12,12);
 dv= Date.new(2013,11,11);
 
-p = Producto.find_or_create_by(nombre:'Guantes de Acero', descripcion:'Guante de malla de acero inox. tejido, anticorte, marca *manulatex* de industria francesa', imagen:'guante.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdí un dedo trabajando. Me gustaría comprar el producto para que no me vuelva a ocurrir.', usuario: Usuario.find_by(alias: 'rm'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Soy carpintero y la necesito para cuando manejo la sierra.', usuario: Usuario.find_by(alias: 'rv'));
+p = Producto.find_or_create_by(nombre:'Guantes de Acero', descripcion:'Guante de malla de acero inox. tejido, anticorte, marca *manulatex* de industria francesa', imagen:'guante.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: dv, categoria: Categoria.find_by(nombre: 'Otros'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdí un dedo trabajando. Me gustaría comprar el producto para que no me vuelva a ocurrir.', monto: 100, usuario: Usuario.find_by(alias: 'rm'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Soy carpintero y la necesito para cuando manejo la sierra.', monto: 50, usuario: Usuario.find_by(alias: 'rv'));
 
 p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta oriunda de Tilcara. Es mansita', imagen:'llama.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d,  categoria: Categoria.find_by(nombre: 'Animales'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Siempre me gustaron los animales porque vivo solo y son buena compañia. Una llama es justo lo que necesito.', usuario: Usuario.find_by(alias: 'mp'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Siempre me gustaron los animales porque vivo solo y son buena compañia. Una llama es justo lo que necesito.', monto: 10000, usuario: Usuario.find_by(alias: 'mp'));
 c = Comentario.find_or_create_by(producto: p, detalle:"Si.", usuario: p.usuario, pregunta: false);
 c = Comentario.new(producto: p, detalle:"Te lame?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true, comentario: c);
 c.save;
 
 p = Producto.find_or_create_by(nombre:'Espejo', descripcion:'Espejo sin marco. Medidas: 0.8m x 1.2m', imagen:'espejo.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Hogar'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro. Con este espejo no me convertiría en vampiro pero me ayudaría a sentirme uno.', usuario: Usuario.find_by(alias: 'rl'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro. Con este espejo no me convertiría en vampiro pero me ayudaría a sentirme uno.', monto: 20, usuario: Usuario.find_by(alias: 'rl'));
 c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true);
 c.save;
 
 p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algún día lo llego a cruzar este producto me vendría al pelo.', usuario: Usuario.find_by(alias: 'mr'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algún día lo llego a cruzar este producto me vendría al pelo.', monto: 500, usuario: Usuario.find_by(alias: 'mr'));
 
 p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: dv);
 

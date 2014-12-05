@@ -8,6 +8,9 @@
 <p>Inicio de la subasta: <%= @producto.created_at %></p>
 <p>Fin de la subasta: <%= @producto.vencimiento %></p>
 
+<% if not @producto.vencido or session[:usuario_id]==@producto.usuario_id %>
+
+
 <h2>Ofertas</h2>
 <% # si es dueño del producto %>
 <% if session[:usuario_id] == @producto.usuario_id %>
@@ -78,3 +81,4 @@
 			<% end %>
 <% end %>
 
+<% end %>
