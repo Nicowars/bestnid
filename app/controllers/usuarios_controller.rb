@@ -1,7 +1,7 @@
 class UsuariosController < ApplicationController
-	before_action	:get,	only: [:show, :edit, :update]
+	before_action	:get,	only: [:show, :edit, :update, :destroy]
 	before_action	:new,	only: :create
-	before_action	:confirm,	only: :destroy
+	#before_action	:confirm,	only: :destroy
 	#before_action	:comprobar,	only: :create
 	
   #def comprobar
@@ -17,7 +17,8 @@ class UsuariosController < ApplicationController
 	#end
 	
 	def confirm
-		@usuario= Usuario.find(session[:usuario_id])
+		#@usuario= Usuario.find(session[:usuario_id])
+		@usuario= Usuario.find(params[:id])
 	end
   def get
     @usuario= Usuario.find(params[:id])
@@ -128,12 +129,12 @@ end
   end
   end
   def destroy
-	if @usuario.password == params[:usuario][:password]
+	if @usuario.password == params[:password]
 		session[:usuario_id] = nil  
 		@usuario.destroy
 		redirect_to root_url, :notice=>"Su cuenta ha sido eliminada"
 	else
-		redirect_to @usuario, :notice=>"Contraseña erronea"
+		redirect_to root_url, :notice=>"Contrasenia erronea"
 	end
   end
 

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'session/new'
   post 'session/new'
-
-
   get 'session/create'
-
   get 'session/destroy'
+  
+  resources :usuarios
+  get 'usuarios/confirm'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -27,8 +27,7 @@ Rails.application.routes.draw do
   resources :ofertas
   get 'comentarios/new' => 'comentarios#create'
   resources :comentarios
-  #get 'usuarios/delete' => 'usuarios#destroy'
-
+  get 'usuarios/destroy' => 'usuarios#destroy'
   resources :productos
   resources :usuarios
   resources :categorias 
