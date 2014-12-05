@@ -1,0 +1,14 @@
+<h2 style="color:red">Una vez eliminada su cuenta, no podrá ser recuperada</h2>
+
+<%= form_tag({:controller => "usuarios", :action => "destroy"}, :method => "get") do %>
+	<table>
+		<tr>
+			<td><%= label_tag "password", "Contraseña: " %></td>
+			<td><%= password_field_tag :password, params[:password], placeholder: 'Ingrese su contraseña' %></td>
+		</tr>
+	</table>
+<div class="actions"><%= submit_tag "Confirmar", class: 'btn btn-danger'%></div>  
+<%end%>
+
+<%= link_to 'Volver', Usuario.find(session[:usuario_id]), class: 'btn btn-primary' %>
+
