@@ -47,6 +47,7 @@ class UsuariosController < ApplicationController
 	@usuario.domicilio = params[:usuario][:domicilio]
 	@usuario.titular = params[:usuario][:titular]
 	@usuario.vencimiento = d
+	@usuario.admin = false
 	@usuario.nac = params[:usuario][:nac]
 		i = ""
 		b = ""
@@ -71,6 +72,7 @@ class UsuariosController < ApplicationController
 	   	if @usuario.save
 			if p == "" && f = "" && i = "" && b = ""
 				session[:usuario_id]=Usuario.find_by(alias: @usuario.alias).id
+				Emailer.hola(@usuario).deliver
 				redirect_to root_url, :notice => "Registrado y conectado"
 			else
 				if p != ""
