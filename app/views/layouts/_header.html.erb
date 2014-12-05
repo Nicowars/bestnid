@@ -16,7 +16,6 @@
 			<%= link_to "Regístrate", new_usuario_path, class: 'btn btn-default' %>
 		<% else %>
 			<%= link_to Usuario.find(session[:usuario_id]).nombre, Usuario.find(session[:usuario_id]), class: 'btn btn-primary' %>
-			<%= Usuario.find(session[:usuario_id]).admin %>
 			<%= link_to "Subastar", new_producto_path, class: 'btn btn-default' %>
 			<%= link_to "Desconectarse", session_destroy_path, class: 'btn btn-default' %>
 		<% end %>

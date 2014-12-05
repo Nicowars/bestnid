@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-	before_action	:get,	only: [:show, :edit, :update, :destroy]
+	before_action	:get,	only: [:show, :edit, :update]
 	before_action	:new,	only: :create
 	#before_action	:confirm,	only: :destroy
 	#before_action	:comprobar,	only: :create
@@ -16,10 +16,9 @@ class UsuariosController < ApplicationController
 		##end
 	#end
 	
-	def confirm
+	#def confirm
 		#@usuario= Usuario.find(session[:usuario_id])
-		@usuario= Usuario.find(params[:id])
-	end
+	#end
   def get
     @usuario= Usuario.find(params[:id])
   end
@@ -131,6 +130,7 @@ end
   end
   end
   def destroy
+	@usuario= Usuario.find(session[:usuario_id])
 	if @usuario.password == params[:password]
 		session[:usuario_id] = nil  
 		@usuario.destroy
