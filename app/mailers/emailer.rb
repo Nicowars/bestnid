@@ -4,7 +4,19 @@ class Emailer < ActionMailer::Base
   def hola(usuario)
     @usuario = usuario
     @url = "http://bestnid-alpha.herokuapp.com"
-    mail(:to => usuario.mail, :subject => "Bestnid")
+    mail(:to => usuario.mail, :subject => "Bienvenid@ a Bestnid")
+  end
+
+  def notificar_subastador(usuario, producto, dinero)
+  	@usuario = usuario
+  	@producto = producto
+  	mail(:to => usuario.mail, :subject => "Bestnid - Su producto se ha subastado exitosamente!")
+  end
+  
+  def notificar_comprador(usuario, producto)
+  	@usuario = usuario
+  	@producto = producto
+  	mail(:to => usuario.mail, :subject => "Bestnid - Han elejido su oferta en un producto!")
   end
 
 end

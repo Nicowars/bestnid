@@ -71,7 +71,10 @@ class UsuariosController < ApplicationController
 	   	if @usuario.save
 			if p == "" && f = "" && i = "" && b = ""
 				session[:usuario_id]=Usuario.find_by(alias: @usuario.alias).id
+				
+				# THE MAIL THING
 				Emailer.hola(@usuario).deliver
+				
 				redirect_to root_url, :notice => "Registrado y conectado"
 			else
 				if p != ""
