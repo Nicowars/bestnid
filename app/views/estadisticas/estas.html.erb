@@ -1,0 +1,30 @@
+<h1>Estadisticas</h1>
+
+</br>
+<% if params[:fechain] == [""] || params[:fechafin] == [""] || (params[:opcion]!= "producto" && params[:opcion] != "usuario")%>
+	<p style="color:red">Quedaron campos sin completar. Presione volver y reintente </p>
+<% else %>
+	<% if params[:opcion] == "usuario" %>
+		<% lista = Usuario.where({ created_at: (params[:fechain]..params[:fechafin]) }) %>
+	<% else %>
+		<% lista = 
+	<% end %>
+	<table BORDER=2 WIDTH= 600 BORDERCOLOR="red">
+		<tr>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Nombre </td>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Mail </td>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Fecha de registro </td>
+		</tr>
+		<% lista.each do |l| %>
+			<tr>
+			<td WIDTH=200 ALIGN=CENTER > <%= l.nombre %> </td>
+				<td WIDTH=200 ALIGN=CENTER > <%= l.mail %> </td>
+				<td WIDTH=200 ALIGN=CENTER > <%= l.created_at %> </td>
+			</tr>
+		<% end %>
+	</table>
+	
+<% end %>
+
+</br>
+<%= link_to "Volver", estadisticas_show_path , class: 'btn btn-primary' %>
