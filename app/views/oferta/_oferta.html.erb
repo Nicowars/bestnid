@@ -1,13 +1,11 @@
 <li>
 	<%= oferta.detalle %>
 	<% if @producto.vencido && !@producto.ganador %>
-		<%= form_tag('/trade/new') do %>
-		<table>
-			<tr>
-				<td><%= hidden_field :oferta_id, params[:oferta_id] %></td>
-			</tr>
-		</table>
+		<%= form_tag('/trade/new', :method => 'post') do %>
+		
+		<%= hidden_field_tag :oferta_id, oferta.id %>
+
 		<div class="actions"><%= submit_tag "Elegir", class: 'btn btn-warning', data: { confirm: 'Estás seguro?' } %></div>  
-		<%end%>
+		<% end %>
 	<% end %>
 </li>
