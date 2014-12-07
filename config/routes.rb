@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
 
   get 'estadisticas/show'
-  get 'estadisticas/estas'
+  post 'estadisticas/estas'
   
   get 'confirm/new'
   get 'confirm/create'
