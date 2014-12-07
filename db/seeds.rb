@@ -87,8 +87,10 @@ o = Oferta.find_or_create_by(producto: p, detalle:'Siempre quise ser vampiro. Co
 c = Comentario.new(producto: p, detalle:"Vidrio a parte?", usuario: Usuario.find_by(alias: 'mr'), pregunta: true);
 c.save;
 
-p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d, categoria: Categoria.find_by(nombre: 'Otros'));
+p = Producto.find_or_create_by(nombre:'Kriptonita', descripcion:'200 gramos de Kriptonita', imagen:'kriptonita.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: dv, categoria: Categoria.find_by(nombre: 'Otros'));
 o = Oferta.find_or_create_by(producto: p, detalle:'Odio a superman y si algún día lo llego a cruzar este producto me vendría al pelo.', monto: 500, usuario: Usuario.find_by(alias: 'mr'));
+p.ganador=o.id
+p.save
 
 p = Producto.find_or_create_by(nombre:'Aceite y Vinagre', descripcion:'200ml de aceite y 300ml de vinagre. No incluye fascos', imagen:'vinagre.jpg', usuario: Usuario.find_by(alias: 'sr'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: dv);
 

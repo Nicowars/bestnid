@@ -20,7 +20,9 @@ class EstadisticasController < ApplicationController
 				params[:lista] = lista
 				render 'estas'
 			else
-				render 'show'
+				lista = Producto.where({ vencimiento: (fechain..fechafin)}).where.not(ganador: nil)
+				params[:lista] = lista
+				render 'estasp'
 			end
 		end
   	end
