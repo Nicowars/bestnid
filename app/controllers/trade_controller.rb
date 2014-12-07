@@ -3,7 +3,7 @@ class TradeController < ApplicationController
   def new
   	oh = Oferta.find(params[:oferta_id])
   	proh = oh.producto
-  	proh.ganador = :oferta_id
+  	proh.ganador = oh.id
   	proh.created_at = Time.now
   	proh.save
   	dinero = oh.monto * 7 / 10

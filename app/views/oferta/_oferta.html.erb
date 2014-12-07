@@ -1,6 +1,6 @@
 <li>
 	<%= oferta.detalle %>
-	<% if @producto.vencido && !@producto.ganador %>
+	<% if @producto.vencido and not @producto.ganador %>
 		<%= form_tag('/trade/new', :method => 'post') do %>
 		
 		<%= hidden_field_tag :oferta_id, oferta.id %>

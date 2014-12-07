@@ -5,8 +5,13 @@
 <h3>Categoria: <%= @producto.categoria.nombre %></h3>
 <%= image_tag @producto.imagen, title: "Foto" %>
 <p><%= @producto.descripcion %></p>
-<p>Inicio de la subasta: <%= @producto.created_at %></p>
-<p>Fin de la subasta: <%= @producto.vencimiento %></p>
+
+<% if not @producto.ganador %>
+	<p>Inicio de la subasta: <%= @producto.created_at %></p>
+	<p>Fin de la subasta: <%= @producto.vencimiento %></p>
+<% else %>
+	<p>Subasta finalizada: <%= @producto.created_at %></p>
+<% end %>
 
 <% if not @producto.vencido or session[:usuario_id]==@producto.usuario_id %>
 
