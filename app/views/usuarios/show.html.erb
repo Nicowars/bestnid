@@ -7,6 +7,8 @@
 	<% @usuario.productos.each do |p| %>
 		<li>
 			<%= link_to p.nombre, p %>
+			<% if p.ganador %> (Finalizado)
+			<% elsif p.vencido %> (Vencido)<% end %>
 		</li>
 	<% end %>
 	<% if @usuario.productos.count == 0 %>

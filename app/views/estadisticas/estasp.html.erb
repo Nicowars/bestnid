@@ -1,0 +1,24 @@
+<h1>Estadisticas</h1>
+
+</br>
+	<% lista=params[:lista] %>
+	<table BORDER=2 WIDTH= 800 BORDERCOLOR="red">
+		<tr>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Usuario </td>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Producto </td>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Fecha de venta </td>
+			<td WIDTH=200 ALIGN=CENTER BGCOLOR="red" style="color:white"> Ganancia </td>
+		</tr>
+		<% lista.each do |l| %>
+			<tr>
+			<td WIDTH=200 ALIGN=CENTER > <%= l.usuario %> </td>
+			<td WIDTH=200 ALIGN=CENTER > <%= l.producto %> </td>
+			<td WIDTH=200 ALIGN=CENTER > <%= l.fecha %> </td>
+			<td WIDTH=200 ALIGN=CENTER > <%= l.ganancia %> </td>
+			</tr>
+		<% end %>
+	</table>
+</br>
+<p>Ganancia total: </p><%= params[:total] %>
+</br>
+<%= link_to "Volver", estadisticas_show_path , class: 'btn btn-primary' %>
