@@ -73,7 +73,7 @@ d= Date.new(2014,12,12);
 dv= Date.new(2013,11,11);
 
 p = Producto.find_or_create_by(nombre:'Guantes de Acero', descripcion:'Guante de malla de acero inox. tejido, anticorte, marca *manulatex* de industria francesa', imagen:'guante.jpg', usuario: Usuario.find_by(alias: 'cm'), vencimiento: dv, categoria: Categoria.find_by(nombre: 'Otros'));
-o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdí un dedo trabajando. Me gustaría comprar el producto para que no me vuelva a ocurrir.', monto: 100, usuario: Usuario.find_by(alias: 'rm'));
+o = Oferta.find_or_create_by(producto: p, detalle:'Soy carnicero y lamentablemente perdí un dedo trabajando. Me gustaría comprar el producto para que no me vuelva a ocurrir.', monto: 100, usuario: Usuario.find_by(alias: 'rl'));
 o = Oferta.find_or_create_by(producto: p, detalle:'Soy carpintero y la necesito para cuando manejo la sierra.', monto: 50, usuario: Usuario.find_by(alias: 'rv'));
 
 p = Producto.find_or_create_by(nombre:'Llama', descripcion:'Llama adulta oriunda de Tilcara. Es mansita', imagen:'llama.jpg', usuario: Usuario.find_by(alias: 'cp'), vencimiento: d,  categoria: Categoria.find_by(nombre: 'Animales'));
