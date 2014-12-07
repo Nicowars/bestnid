@@ -16,7 +16,7 @@ u = Usuario.find_or_create_by(alias: 'mr', nombre:'Mabel Rimano', mail:'mr@bestn
 u = Usuario.find_or_create_by(alias: 'rv', nombre:'Roberto Vegas', mail:'rv@bestnid.com', password:'rv', tel:'4', credit:'4567891011121314', domicilio:'Elipse', vencimiento:d, nac: d, titular:'ROBERTO VEGAS', admin: false);
 u = Usuario.find_or_create_by(alias: 'cm', nombre:'Carlos Maidana', mail:'cm@bestnid.com', password:'cm', tel:'5', credit:'5678910111213141', domicilio:'Pentagono', vencimiento:d, nac: d, titular:'CARLOS MAIDANA', admin: false);
 u = Usuario.find_or_create_by(alias: 'cp', nombre:'Catalina Perez', mail:'cp@bestnid.com', password:'cp', tel:'6', credit:'6789101112131415', domicilio:'Hexagono', vencimiento:d, nac: d, titular:'CATALINA PEREZ', admin: false);
-u = Usuario.find_or_create_by(alias: 'sr', nombre:'Sergio Ramirez', mail:'sr@bestnid.com', password:'cr', tel:'7', credit:'7891011121314151', domicilio:'Heptonogo', vencimiento:d, nac: d, titular:'SERGIO RAMIREZ', admin: false);
+u = Usuario.find_or_create_by(alias: 'sr', nombre:'Sergio Ramirez', mail:'sr@bestnid.com', password:'sr', tel:'7', credit:'7891011121314151', domicilio:'Heptonogo', vencimiento:d, nac: d, titular:'SERGIO RAMIREZ', admin: false);
 u = Usuario.find_or_create_by(alias: 'admin', nombre:'Administrador', mail:'admin@bestnid.com', password:'1234', tel:'8', credit:'7891011121314152', domicilio:'Octonogo', vencimiento:d, nac: d, titular:'ADMINISTRADOR', admin: true);
 
 #-----------------------------

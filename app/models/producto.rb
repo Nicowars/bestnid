@@ -26,6 +26,11 @@ end
 
 def vence
 	self.vencido = Date.today > self.vencimiento
+	if self.vencido
+		if self.ofertas.count == 0
+			self.ganador= -1
+		end
+	end
 end
 
 end

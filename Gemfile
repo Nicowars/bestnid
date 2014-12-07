@@ -47,3 +47,5 @@ gem 'bootstrap-generators'
 group :development, :test do
 	gem 'rspec-rails', '~> 3.0.0'
 end
+
+gem 'javan-whenever'
