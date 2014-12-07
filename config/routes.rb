@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   get 'estadisticas/estas'
   
   get 'confirm/new'
-  get 'confirm/create'
-
+  post 'trade/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
