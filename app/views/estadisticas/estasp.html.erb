@@ -17,12 +17,12 @@
 			<td WIDTH=200 ALIGN=CENTER > <%= l.vencimiento %> </td>
 			<% ganancia=Oferta.find(l.ganador).monto*30/100 %>
 			<% total=total+ganancia %>
-			<td WIDTH=200 ALIGN=CENTER > <%= ganancia %> </td>
+			<td WIDTH=200 ALIGN=CENTER > $<%= ganancia %> </td>
 			</tr>
 		<% end %>
 	</table>
 </br>
-<p>Ganancia total: <%= total %></p>
+<p>Ganancia total: $<%= total %></p>
 </br>
 </br>
 <%= link_to "Volver", estadisticas_show_path , class: 'btn btn-primary' %>
