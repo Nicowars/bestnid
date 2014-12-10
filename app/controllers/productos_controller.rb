@@ -18,7 +18,7 @@ class ProductosController < ApplicationController
     @producto= Producto.new
   end
   def index
-	@productos= Producto.search(params[:search])
+	@productos= Producto.search(params[:search]).where({ ganador: nil })
 	if (params[:orden] == 'Mas recientes')
 		@productos= Producto.search(params[:search]).order("created_at desc")
 	end
