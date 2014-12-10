@@ -1,3 +1,18 @@
 <p>
 	El dueño del producto <%= @producto.nombre %> ha elegido su oferta como la mejor ¡Felicitaciones!
 </p>
+<p>
+	El dueño del producto es <%= @producto.usuario.nombre %>
+</p>
+<p>
+	Sus datos personales, para el contacto, son:
+</p>
+<p>
+	Domicilio: <%= @producto.usuario.domicilio %>
+</p>
+<p>
+	Telefono: <%= @producto.usuario.tel %>
+</p>
+<p>
+	E-mail: <%= @producto.usuario.mail %>
+</p>
