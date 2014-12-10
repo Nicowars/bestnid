@@ -1,4 +1,4 @@
-#encoding: utf-8
+# ruby encoding: utf-8
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
@@ -32,7 +32,7 @@ u.save;
 u = Usuario.find_or_create_by(alias: 'jaimez', nombre:'Jaime Zubieta', mail:'jaime.zb0@gmail.com', password:'jz', tel:'11', credit:'3132333435363738', domicilio:'Pellegrini', vencimiento:d, nac: d, titular:'JAIME', admin: false);
 u.created_at=Date.new(2014,5,29);
 u.save;
-u = Usuario.find_or_create_by(alias: 'nicol', nombre:'Nicolás Laurella', mail:'nicolaslaurella0@gmail.com', password:'nl', tel:'12', credit:'4132333435363738', domicilio:'Calle Falsa 123', vencimiento:d, nac: d, titular:'NICO', admin: false);
+u = Usuario.find_or_create_by(alias: 'nicol', nombre:'Nicolas Laurella', mail:'nicolaslaurella0@gmail.com', password:'nl', tel:'12', credit:'4132333435363738', domicilio:'Calle Falsa 123', vencimiento:d, nac: d, titular:'NICO', admin: false);
 u.created_at=Date.new(2014,7,21);
 u.save;
 
