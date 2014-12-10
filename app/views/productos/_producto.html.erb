@@ -1,7 +1,7 @@
 <li>
 	<%= link_to producto.nombre, producto %> (Vence: <%= producto.vencimiento %>)
-	<% if producto.vencido %>
-		<p> Vencido </p>
+	<% if producto.ganador %><span style="color:red">Finalizado</span>
+	<% elsif producto.vencido %><span style="color:green">Vencido</span>
 	<% end %>
 	</br>
 	<%= image_tag producto.imagen, size:'200x200' %></br>
