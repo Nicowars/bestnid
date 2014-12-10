@@ -32,6 +32,9 @@ u.save;
 u = Usuario.find_or_create_by(alias: 'jaimez', nombre:'Jaime Zubieta', mail:'jaime.zb0@gmail.com', password:'jz', tel:'11', credit:'3132333435363738', domicilio:'Pellegrini', vencimiento:d, nac: d, titular:'JAIME', admin: false);
 u.created_at=Date.new(2014,5,29);
 u.save;
+u = Usuario.find_or_create_by(alias: 'nicol', nombre:'Nicolás Laurella', mail:'nicolaslaurella0@gmail.com', password:'nl', tel:'12', credit:'4132333435363738', domicilio:'Calle Falsa 123', vencimiento:d, nac: d, titular:'NICO', admin: false);
+u.created_at=Date.new(2014,7,21);
+u.save;
 
 #-----------------------------
 #---------CATEGORIAS----------
@@ -130,7 +133,7 @@ p.save;
 
 p = Producto.find_or_create_by(nombre:'Lamparas de lava', descripcion:'El fluir apacible de las gotas de cera formadas al azar sugiere una corriente de lava', imagen:'http://mla-s2-p.mlstatic.com/lampara-lava-32-cm-modelo-bala-ideal-regalo-local-obelisco-5404-MLA4439670507_062013-O.jpg', usuario: Usuario.find_by(alias: 'gabym'), categoria: Categoria.find_by(nombre: 'Hogar'), vencimiento: dv);
 
-p = Producto.find_or_create_by(nombre:'La interpretacion de los suenios', descripcion:'La interpretación de los sueños (Die Traumdeutung) es una obra de Sigmund Freud que inauguró la teoría freudiana del análisis de los sueños', imagen:'http://anonymousopc.ucoz.com/Portadas/sigmund-freud-la-interpretacion-de-los-suenos-libr.jpg', usuario: Usuario.find_by(alias: 'rl'), categoria: Categoria.find_by(nombre: 'Libros'), vencimiento: dv);
+p = Producto.find_or_create_by(nombre:'La interpretacion de los sueños', descripcion:'La interpretación de los sueños (Die Traumdeutung) es una obra de Sigmund Freud que inauguró la teoría freudiana del análisis de los sueños', imagen:'http://anonymousopc.ucoz.com/Portadas/sigmund-freud-la-interpretacion-de-los-suenos-libr.jpg', usuario: Usuario.find_by(alias: 'rl'), categoria: Categoria.find_by(nombre: 'Libros'), vencimiento: dv);
 o = Oferta.find_or_create_by(producto: p, detalle:'Quiero entender mis sueños turbios', monto: 250, usuario: Usuario.find_by(alias: 'mp'));
 p.ganador=o.id
 p.created_at = Date.new(2014,2,3);
