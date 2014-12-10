@@ -16,11 +16,11 @@ class EstadisticasController < ApplicationController
 			redirect_to estadisticas_show_path
   		else
 			if params[:opcion] == "usuario"
-				lista = Usuario.where({ created_at: (fechain..fechafin) }).order(created_at)
+				lista = Usuario.where({ created_at: (fechain..fechafin) }).order("created_at")
 				params[:lista] = lista
 				render 'estas'
 			else
-				lista = Producto.where.not(ganador: nil).where.not(ganador: "-1").where({ created_at: (fechain..fechafin)}).order(created_at)
+				lista = Producto.where.not(ganador: nil).where.not(ganador: "-1").where({ created_at: (fechain..fechafin)}).order("created_at")
 				params[:lista] = lista
 				render 'estasp'
 			end
