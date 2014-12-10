@@ -6,8 +6,7 @@ class TradeController < ApplicationController
   	proh.ganador = oh.id
   	proh.created_at = Time.now
   	proh.save
-  	dinero = oh.monto * 7 / 10
-  	Emailer.notificar_subastador(proh, dinero).deliver
+  	Emailer.notificar_subastador(proh).deliver
   	Emailer.notificar_comprador(Usuario.find(oh.usuario_id), proh).deliver
   end
    

@@ -7,7 +7,7 @@ class Emailer < ActionMailer::Base
     mail(:to => usuario.mail, :subject => "Bienvenid@ a Bestnid")
   end
 
-  def notificar_subastador(producto, dinero)
+  def notificar_subastador(producto)
   	@usuario = producto.usuario
   	@producto = producto
   	mail(:to => @usuario.mail, :subject => "Bestnid - Su producto se ha subastado exitosamente!")

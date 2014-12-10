@@ -1,5 +1,5 @@
 <p>
-	Usted ha ganado <%= @dinero %>.
+	Usted ha ganado <%= Oferta.find(@producto.ganador).monto * 0.7 %>.
 </p>
 <p>
 	Gracias por usar Bestnid.
