@@ -11,9 +11,9 @@ class EstadisticasController < ApplicationController
   	else
   	fechain=params[:fechain][0]
   	fechafin=params[:fechafin][0]
-  		if  (Date.parse(fechain) > Date.parse(fechafin))
+  		if  fechain > fechafin
   			flash[:notice]="La fecha de cierre debe ser igual o posterior a la fecha de inicio"
-			render 'show'
+			redirect_to estadisticas_show_path
   		else
 			if params[:opcion] == "usuario"
 				lista = Usuario.where({ created_at: (fechain..fechafin) })
